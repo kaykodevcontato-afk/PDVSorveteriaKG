@@ -4,3 +4,34 @@ html[data-theme=dark]{--bg:#160f1e;--surface:#2a1c36;--surface-2:#382748;--text:
 @media(max-width:1240px){.sidebar{width:223px;min-width:223px}.pdv-grid,body.pdv-focus .pdv-grid{grid-template-columns:minmax(335px,1.15fr) minmax(255px,1fr)}.pdv-checkout{grid-column:1/-1}.pdv-keyboard{max-width:480px;margin:auto;width:100%}.stat-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:900px){.sidebar{position:fixed;left:-266px;width:252px;min-width:252px;transition:left .2s}.sidebar.visible{left:0}.mobile-menu{display:block}.two-col{grid-template-columns:1fr}.main-wrap{width:100%}.topbar{padding:13px}main{padding:13px}.pdv-grid,body.pdv-focus .pdv-grid{grid-template-columns:minmax(0,1fr)}.pdv-checkout{grid-column:auto}.pdv-tiles{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:500px){.stat-grid{grid-template-columns:1fr}.pdv-filters,.ice-input-row{grid-template-columns:1fr}.receipt-actions{grid-template-columns:1fr}.modal{padding:17px}.pdv-grid>.panel{padding:13px}.pdv-tiles{grid-template-columns:repeat(2,minmax(0,1fr))}.topbar{align-items:flex-start}}
 @media print{@page{size:A4;margin:20mm 19mm 22mm 19mm}html{min-width:0!important}body{background:#fff!important;color:#000!important}body.printing-receipt{width:58mm!important;min-width:0!important}body.printing-receipt .shell,body.printing-receipt .modal-overlay,body.printing-receipt .toast{display:none!important}body.printing-receipt #receiptPaper{visibility:visible!important;display:block!important;position:static!important;left:auto!important;top:auto!important;width:58mm!important}body.printing-report .sidebar,body.printing-report .topbar,body.printing-report footer,body.printing-report .action-row,body.printing-report .report-filters,body.printing-report .screen-only,body.printing-report section:not(#page-relatorios){display:none!important}body.printing-report .main-wrap{display:block!important}body.printing-report #page-relatorios{display:block!important}body.printing-report main{padding:0!important}body.printing-report #printHeader{display:block!important;margin-bottom:17px}body.printing-report .panel,body.printing-report .stat{border:1px solid #ccc!important;break-inside:avoid-page}body.printing-report .stat-grid{grid-template-columns:repeat(4,1fr)}body.printing-report table{font-size:9px!important}body.printing-report th,body.printing-report td{padding:6px 4px!important}}
 #employeeSelectOverlay{z-index:75}#recoverOwnerOverlay,#recoveryCodeOverlay{z-index:85}
+
+/* SORVETERIA MANAGER 1.0.6: SEMÁFORO DE ESTOQUE — CLARO E ESCURO */
+.stock-legend{display:flex;flex-wrap:wrap;align-items:center;gap:9px;margin:15px 0 12px}
+.stock-badge{display:inline-flex;align-items:center;justify-content:flex-start;gap:6px;border-radius:99px;border:1px solid transparent;padding:5px 9px;font-size:.69rem;line-height:1.25;font-weight:850;white-space:normal;max-width:100%;}
+.stock-dot{display:inline-block;width:9px;height:9px;flex:0 0 9px;border-radius:50%;background:currentColor}
+.stock-green{color:#145c35;background:#e1f7e8;border-color:#a5dec0}
+.stock-yellow{color:#7a5200;background:#fff2c7;border-color:#f2cf73}
+.stock-red{color:#9a1d2c;background:#ffe2e6;border-color:#f5a5b2}
+.stock-row-green td:first-child{border-left:4px solid #21945d}
+.stock-row-yellow td:first-child{border-left:4px solid #d7a514}
+.stock-row-red td:first-child{border-left:4px solid #d94355}
+.stock-cell{display:flex;flex-wrap:wrap;align-items:center;gap:7px;min-width:110px}
+.stock-cell strong{white-space:nowrap}
+.stock-tile-status{display:flex;flex-wrap:wrap;align-items:center;gap:5px}
+.stock-tile-status small{font-size:.7rem}
+.pdv-tile.stock-tile-green{border-left:4px solid #21945d}
+.pdv-tile.stock-tile-yellow{border-left:4px solid #d7a514;background:color-mix(in srgb,var(--surface-2) 88%,#fff2c7)}
+.pdv-tile.stock-tile-red{border-left:4px solid #d94355;background:color-mix(in srgb,var(--surface-2) 88%,#ffe2e6)}
+.pdv-tile.stock-tile-red:disabled{opacity:1;cursor:not-allowed}
+.stock-notice{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;padding:10px 12px;border-radius:10px;border:1px solid var(--line);margin:7px 0}
+.stock-notice>div{display:grid;gap:3px}
+.stock-notice strong{overflow-wrap:anywhere;font-size:.82rem}
+.stock-notice small{font-size:.73rem}
+.stock-notice-yellow{border-left:4px solid #d7a514;background:color-mix(in srgb,var(--surface) 91%,#fff2c7)}
+.stock-notice-red{border-left:4px solid #d94355;background:color-mix(in srgb,var(--surface) 91%,#ffe2e6)}
+.stock-empty{color:var(--success);font-size:.83rem;padding:9px}
+html[data-theme="dark"] .stock-green{color:#b1f6ca;background:#12402a;border-color:#367952}
+html[data-theme="dark"] .stock-yellow{color:#ffe49b;background:#493708;border-color:#8e6a24}
+html[data-theme="dark"] .stock-red{color:#ffb2bc;background:#4c1b28;border-color:#8e3648}
+@media(max-width:600px){.stock-legend{gap:6px}.stock-badge{font-size:.65rem;padding:5px 7px}.stock-cell{min-width:90px}}
+@media print{.stock-badge{border-color:#999!important;background:transparent!important;color:#111!important}}

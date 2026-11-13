@@ -1,4 +1,4 @@
-# Sorveteria Manager 1.0.5 — Dev Kayko
+# Sorveteria Manager 1.0.6 — Dev Kayko
 
 **Pacote completo** do sistema para publicar no GitHub Pages, não apenas um complemento. Inclui `index.html`, `css/style.css`, todos os arquivos `js/`, o portfólio `dev-kayko/index.html` e este README.
 
@@ -62,3 +62,16 @@ dev-kayko/index.html
 - O backup JSON contém verificadores criptográficos das senhas, portanto mantenha-o protegido.
 
 **Testes realizados:** execução simulada no Chromium com criação de dono, código de recuperação, cadastro de funcionário, senha do caixa, vendas por peso e bola, impressão das duas vias, histórico e Excel. A impressão física e a publicação no seu repositório ainda não foram verificadas.
+
+
+## Semáforo de estoque — v1.0.6
+
+O estoque agora utiliza três cores nas telas **Visão geral → Avisos de estoque**, **Casquinhas, embalagens e estoque** e **Frente de caixa (PDV)**:
+
+- **Verde — estoque OK:** quantidade acima do estoque mínimo configurado para o produto.
+- **Amarelo — estoque baixo:** quantidade positiva, mas menor ou igual ao estoque mínimo.
+- **Vermelho — esgotado:** quantidade igual ou inferior a zero. O botão do produto esgotado não pode ser selecionado no PDV.
+
+Exemplo: mínimo de 10 unidades: 15 fica verde; 5 fica amarelo; 0 fica vermelho. Para mudar o limite, entre no perfil do dono em **Casquinhas e embalagens → Editar → Estoque mínimo**. Adicionamos o filtro **Somente esgotados**. Todas as cores têm texto e legenda para acessibilidade.
+
+**Atualização:** substitua `index.html`, `css/style.css` e `js/app.js`; mantenha a mesma chave de dados, endereço do site e demais arquivos. Antes de atualizar, guarde um backup JSON.

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#1857bf">
   <meta name="description" content="Sorveteria Manager: vendas por quilo, por bola, casquinhas, embalagens, caixa e relatórios. Dev Kayko.">
-  <title>Sorveteria Manager 1.0.5 | Dev Kayko</title>
+  <title>Sorveteria Manager 1.0.6 | Dev Kayko</title>
   <link rel="stylesheet" href="css/style.css">
   <script defer src="js/data.js"></script>
   <script defer src="js/security.js"></script>
@@ -19,7 +19,7 @@
   <aside class="sidebar" id="sidebar">
     <div class="brand">
       <span class="brand-icon">🍦</span>
-      <span class="brand-copy"><strong id="brandName">Sorveteria Manager</strong><small>PDV DE SORVETERIA • V1.0.5</small></span>
+      <span class="brand-copy"><strong id="brandName">Sorveteria Manager</strong><small>PDV DE SORVETERIA • V1.0.6</small></span>
     </div>
     <nav aria-label="Menu principal" id="navigation">
       <button class="nav-item active" data-page="inicio" title="Visão geral"><span class="nav-icon">▦</span><span>Visão geral</span></button>
@@ -94,7 +94,7 @@
       </section>
 
       <!-- 03 — PRODUTOS -->
-      <section class="page" id="page-produtos"><div class="section-head"><div><h2>Casquinhas, embalagens e estoque</h2><p>Cadastre casquinhas, potes, copos e outros produtos vendidos ou utilizados.</p></div><button class="btn btn-primary" id="newProduct">+ Novo produto</button></div><div class="panel"><div class="form-row"><label class="grow">Pesquisar<input id="productSearch" placeholder="Nome ou código"></label><label>Exibir<select id="stockFilter"><option value="all">Todos</option><option value="low">Estoque baixo</option></select></label></div><div class="table-wrap"><table><thead><tr><th>Produto / categoria</th><th>Código</th><th>Estoque</th><th>Custo</th><th>Venda</th><th>Ações</th></tr></thead><tbody id="productRows"></tbody></table></div></div></section>
+      <section class="page" id="page-produtos"><div class="section-head"><div><h2>Casquinhas, embalagens e estoque</h2><p>Cadastre casquinhas, potes, copos e outros produtos vendidos ou utilizados.</p></div><button class="btn btn-primary" id="newProduct">+ Novo produto</button></div><div class="panel"><div class="form-row"><label class="grow">Pesquisar<input id="productSearch" placeholder="Nome ou código"></label><label>Exibir<select id="stockFilter"><option value="all">Todos</option><option value="low">Estoque baixo e esgotado</option><option value="out">Somente esgotados</option></select></label></div><div class="stock-legend" aria-label="Legenda das cores do estoque"><span class="stock-badge stock-green"><span class="stock-dot" aria-hidden="true"></span>Verde: acima do mínimo</span><span class="stock-badge stock-yellow"><span class="stock-dot" aria-hidden="true"></span>Amarelo: estoque baixo</span><span class="stock-badge stock-red"><span class="stock-dot" aria-hidden="true"></span>Vermelho: esgotado</span></div><div class="table-wrap"><table><thead><tr><th>Produto / categoria</th><th>Código</th><th>Estoque</th><th>Custo</th><th>Venda</th><th>Ações</th></tr></thead><tbody id="productRows"></tbody></table></div></div></section>
 
       <!-- 04 — SERVIÇOS -->
       <section class="page" id="page-servicos">
