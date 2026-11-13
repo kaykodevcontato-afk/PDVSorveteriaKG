@@ -1,4 +1,4 @@
-# Sorveteria Manager 1.0.1 — Dev Kayko
+# Sorveteria Manager 1.0.2 — Dev Kayko
 
 Sistema de caixa e gestão para sorveteria, feito em **HTML + CSS + JavaScript**, com hospedagem gratuita via **GitHub Pages**. É uma adaptação do Papelaria Manager, mas com **armazenamento separado** (`devkayko_sorveteria_v1`), evitando misturar vendas dos dois estabelecimentos.
 
@@ -27,9 +27,22 @@ Ao digitar **Valor informado (R$)**, o total desse sorvete será o valor inserid
 
 ## Área do dono e funcionário
 
-O dono cria uma senha no primeiro uso e configura uma **senha operacional do caixa** diferente. O funcionário acessa o PDV sem senha de login, mas informa a senha operacional para abrir ou fechar o caixa. Relatórios, estoque, sabores, custos, metas, salários, backup e configurações ficam no menu do dono.
+O dono cria uma senha no primeiro uso e recebe um **código de recuperação único** para guardar fora do computador. Depois configura uma **senha operacional do caixa** diferente. O funcionário acessa o PDV sem senha de login, mas informa a senha operacional para abrir ou fechar o caixa. Relatórios, estoque, sabores, custos, metas, salários, backup e configurações ficam no menu do dono.
 
 **Atenção à segurança:** a proteção de perfis funciona na interface. Como tudo fica no navegador, um usuário técnico com acesso ao mesmo computador pode consultar os dados. Para proteção real, é necessário um sistema com servidor e autenticação.
+
+## Perdeu a senha do dono?
+
+1. Na tela inicial, selecione **Dono → Esqueci a senha do dono**.
+2. Informe o código que foi exibido e salvo no primeiro acesso (24 caracteres, separados em grupos).
+3. Crie uma senha nova; vendas, estoque, histórico e relatórios permanecem salvos.
+4. Entre com a nova senha: o sistema gerará **outro código de recuperação** e invalidará o anterior. Salve-o fora do computador e não compartilhe com funcionários.
+
+**Código perdido:** não há recuperação por e-mail nem senha universal. Se a instalação é anterior à 1.0.2, **entre usando a senha antiga para gerar o primeiro código**. Se perdeu ambos antes de gerar o código, não há redefinição disponível pela interface. Não apague os dados do navegador e não importe backups de origem desconhecida. O proprietário que ainda sabe a senha pode gerar novo código em **Configurações → Gerar novo código de recuperação**.
+
+**Perdeu apenas a senha do caixa?** Entre como **Dono**, acesse **Configurações → Funcionário e senha do caixa** e escolha uma nova senha confirmando a senha administrativa.
+
+Os verificadores de senha e recuperação ficam no armazenamento do próprio navegador; não existe autenticação de servidor. A proteção evita acesso casual pela interface, mas não protege contra alguém com controle técnico do dispositivo.
 
 ## Relatórios e backup
 
@@ -53,15 +66,19 @@ O link é **relativo** (`dev-kayko/index.html`): funciona tanto no GitHub Pages 
 2. Envie os arquivos `index.html`, `README.md` e as pastas `css`, `js` e `dev-kayko` **preservando a estrutura**.
 3. Em **Settings → Pages**, selecione **Deploy from a branch** → branch **main** → pasta **/(root)** → **Save**.
 4. Abra `https://SEU-USUARIO.github.io/sorveteria-manager/` (substitua pelo usuário e nome real do repositório).
-5. No primeiro acesso, crie a senha do dono, entre em **Sabores e preços** e ajuste os valores; depois configure a senha do caixa e as quantidades em estoque.
+5. No primeiro acesso, crie a senha do dono, **salve o código de recuperação**, entre em **Sabores e preços** e ajuste os valores; depois configure a senha do caixa e as quantidades em estoque.
 
 **Evite usar o mesmo repositório da papelaria:** a sorveteria é outro projeto e usa outra base local. O sistema não sincroniza dispositivos; os registros permanecem no navegador/dispositivo em uso. Ao mudar de computador, use o backup JSON.
+
+## Nome do sistema exibido no menu
+
+O cabeçalho é configurável pelo proprietário. Se o nome salvo localmente era **Papelaria Manager**, **Minha Papelaria** ou o padrão **Minha Sorveteria**, a versão 1.0.2 troca automaticamente para **Sorveteria Manager**. Nomes próprios personalizados não são alterados. Edite manualmente em **Configurações → Nome da sorveteria**, se desejar.
 
 ## Estrutura dos arquivos
 
 ```text
 sorveteria-manager/
-├── index.html       # Interface, páginas e formulários
+├── index.html       # Interface, páginas e formulários, recuperação de acesso
 ├── dev-kayko/
 │   └── index.html   # Portfólio Dev Kayko (fornecido pelo usuário)
 ├── css/
@@ -72,7 +89,7 @@ sorveteria-manager/
 │   ├── app.js       # Caixa, venda, estoque, histórico, relatórios
 │   ├── excel.js     # Geração de Excel .xlsx no navegador
 │   ├── access.js    # Acesso de dono e funcionário
-│   └── security.js  # Senhas locais (PBKDF2)
+│   └── security.js  # Senhas e código de recuperação (PBKDF2)
 └── README.md
 ```
 

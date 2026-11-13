@@ -32,5 +32,17 @@ const CashSecurity=(()=>{
     for(let i=0;i<computed.length;i++)diff|=computed[i]^expected[i];
     return diff===0;
   }
-  return Object.freeze({create,verify});
+  // Código aleatório de 120 bits, exibido UMA única vez e nunca salvo em texto claro.
+  // Alfabeto sem caracteres ambíguos (I/O/0/1).
+  function generateRecoveryCode(){
+    if(!globalThis.crypto?.getRandomValues)throw Error('Criptografia indisponível neste navegador.');
+    const alphabet='ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+    const bytes=crypto.getRandomValues(new Uint8Array(24));
+    const characters=Array.from(bytes,b=>alphabet[b&31]).join('');
+    return characters.match(/.{1,4}/g).join('-');
+  }
+  function normalizeRecoveryCode(value){
+    return String(value||'').toUpperCase().replace(/[^A-Z0-9]/g,'');
+  }
+  return Object.freeze({create,verify,generateRecoveryCode,normalizeRecoveryCode});
 })();

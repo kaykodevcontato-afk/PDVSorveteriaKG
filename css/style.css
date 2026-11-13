@@ -1,5 +1,5 @@
 /*
-  SORVETERIA MANAGER 1.4 — DEV KAYKO
+  SORVETERIA MANAGER 1.0.2 — DEV KAYKO
   1. Variáveis / temas
   2. Estrutura / componentes
   3. PDV em tela cheia no desktop
@@ -177,6 +177,13 @@ body.pdv-focus .main-wrap{width:100%}
 @media(min-width:901px){body.pdv-focus .pdv-grid{grid-template-columns:minmax(220px,1.16fr) minmax(200px,.86fr) minmax(270px,.92fr)}}
 
 /* ── 8. PERFIS E LOGIN (VERSÃO 1.6) ── */
+/* O código de recuperação só é acessível mediante autenticação com a senha antiga
+   ou após confirmar um código previamente emitido. */
+.recovery-overlay{z-index:170;backdrop-filter:blur(7px)}
+.recovery-link{border:none;background:none;color:var(--primary);font-weight:800;padding:9px 7px;font-size:.82rem;margin:7px auto 0;text-decoration:underline;cursor:pointer}
+.recovery-code-display{font-size:clamp(.9rem,3.5vw,1.18rem);font-weight:900;letter-spacing:.09em;word-break:break-word;text-align:center;color:var(--primary);background:var(--primary-soft);border:1px dashed var(--primary);border-radius:13px;padding:18px 10px;margin:14px 0}
+.recovery-code-actions{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+.recovery-code-actions .btn{flex:1;white-space:normal}
 body.login-locked .shell{visibility:hidden;pointer-events:none}
 .login-overlay{z-index:140;background:linear-gradient(130deg,#061326e8,#0a2651ed);backdrop-filter:blur(9px)}
 .login-modal{max-width:465px;text-align:center;padding:29px 30px 23px;box-shadow:0 30px 95px #0005}
@@ -198,7 +205,7 @@ body.role-operator #page-caixa{max-width:none}
 body.role-operator:not(.pdv-mode) .main-wrap{min-height:100dvh}
 body.role-operator .pdv-toolbar #pdvSwitchUser{display:inline-block}
 @media(max-width:610px){.login-modal{padding:22px 17px}.topbar #switchUser{font-size:.69rem;padding:8px}.topbar .user-role-chip{font-size:.63rem}}
-@media print{.login-overlay,.cash-access-panel,#cashAccessOverlay,.user-role-chip,#switchUser,#pdvSwitchUser{display:none!important}}
+@media print{.login-overlay,.cash-access-panel,#cashAccessOverlay,.recovery-overlay,.user-role-chip,#switchUser,#pdvSwitchUser{display:none!important}}
 
 .pdv-profile{font-size:.7rem;display:inline-flex;vertical-align:middle;padding:5px 8px;color:var(--primary);background:var(--primary-soft);border-radius:30px;font-weight:800;white-space:nowrap}
 

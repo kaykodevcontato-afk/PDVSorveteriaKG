@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#1857bf">
   <meta name="description" content="Sorveteria Manager: vendas por quilo, por bola, casquinhas, embalagens, caixa e relatórios. Dev Kayko.">
-  <title>Sorveteria Manager 1.0 | Dev Kayko</title>
+  <title>Sorveteria Manager 1.0.2 | Dev Kayko</title>
   <link rel="stylesheet" href="css/style.css">
   <script defer src="js/data.js"></script>
   <script defer src="js/security.js"></script>
@@ -19,7 +19,7 @@
   <aside class="sidebar" id="sidebar">
     <div class="brand">
       <span class="brand-icon">🍦</span>
-      <span class="brand-copy"><strong id="brandName">Sorveteria Manager</strong><small>PDV DE SORVETERIA • V1.0</small></span>
+      <span class="brand-copy"><strong id="brandName">Sorveteria Manager</strong><small>PDV DE SORVETERIA • V1.0.2</small></span>
     </div>
     <nav aria-label="Menu principal" id="navigation">
       <button class="nav-item active" data-page="inicio" title="Visão geral"><span class="nav-icon">▦</span><span>Visão geral</span></button>
@@ -133,7 +133,9 @@
           <div class="panel-head"><h3>🔐 Senha do dono</h3><span class="pill" id="securityStatus">Não configurada</span></div>
           <p>A senha do dono libera o painel administrativo. A senha operacional do caixa é separada e usada para abrir/fechar o atendimento. O funcionário entra no PDV sem senha de login.</p>
           <button type="button" id="changeCashPassword" class="btn btn-secondary">Alterar senha do dono</button>
-          <p class="hint">Não é login de servidor: usuários com acesso ao armazenamento do navegador podem modificar os dados. Se perder a senha, não há recuperação automática. Guarde seus backups em local seguro; eles contêm o verificador de senha.</p>
+          <p class="hint">Para recuperar a senha do dono, guarde o código de recuperação gerado no primeiro acesso. Ele não aparece novamente e pode ser substituído pelo dono.</p>
+          <button type="button" id="renewRecoveryCode" class="btn btn-secondary">Gerar novo código de recuperação</button>
+          <p class="hint">A recuperação exige esse código. Sem a senha e sem o código, o site não consegue verificar quem é o dono. O sistema é local e não possui recuperação por e-mail.</p>
         </div>
         <div class="panel top-gap cash-access-panel">
           <div class="panel-head"><h3>🧾 Funcionário e senha do caixa</h3><span id="cashAccessStatus" class="pill">Configure a senha do caixa</span></div>
@@ -177,8 +179,39 @@
       <label id="loginPasswordConfirmWrap" hidden>Confirmar senha do dono <input id="loginPasswordConfirm" name="passwordConfirm" type="password" autocomplete="new-password" minlength="6" maxlength="64" placeholder="Repita a senha"></label>
       <p id="loginError" class="auth-error" role="alert" hidden></p>
       <button type="submit" id="loginSubmit" class="btn btn-primary login-submit">Entrar no sistema</button>
+      <button type="button" id="forgotOwnerPassword" class="recovery-link" hidden>Esqueci a senha do dono</button>
     </form>
     <p class="login-footer">Acesso local • Dados neste navegador • Desenvolvido por <a class="dev-credit-link" href="dev-kayko/index.html" target="_blank" rel="noopener noreferrer" title="Conheça o site Dev Kayko">Dev Kayko</a></p>
+  </div>
+</div>
+<!-- Código de recuperação criado pelo dono: mostrar apenas uma vez. -->
+<div id="recoveryCodeOverlay" class="modal-overlay recovery-overlay" hidden>
+  <div class="modal auth-modal" role="dialog" aria-modal="true" aria-labelledby="recoveryCodeTitle">
+    <div class="auth-icon" aria-hidden="true">🔑</div>
+    <h3 id="recoveryCodeTitle">Guarde seu código de recuperação</h3>
+    <p>Se esquecer a senha do dono, este código permite cadastrar outra senha <b>sem apagar as vendas</b>. Ele aparece somente agora. Não entregue ao funcionário.</p>
+    <div class="recovery-code-display" id="recoveryCodeText" aria-label="Código de recuperação"></div>
+    <div class="recovery-code-actions">
+      <button type="button" class="btn btn-secondary" id="copyRecoveryCode">Copiar código</button>
+      <button type="button" class="btn btn-secondary" id="downloadRecoveryCode">Salvar arquivo TXT</button>
+    </div>
+    <p class="hint">O código anterior deixa de funcionar quando você gerar outro ou redefinir a senha.</p>
+    <button type="button" class="btn btn-primary" id="closeRecoveryCode">Já guardei o código</button>
+  </div>
+</div>
+<!-- Redefinição de senha do dono exige o código criado anteriormente. -->
+<div id="recoverOwnerOverlay" class="modal-overlay recovery-overlay" hidden>
+  <div class="modal auth-modal" role="dialog" aria-modal="true" aria-labelledby="recoverOwnerTitle">
+    <div class="auth-icon" aria-hidden="true">🔐</div>
+    <h3 id="recoverOwnerTitle">Recuperar acesso do dono</h3>
+    <p id="recoverOwnerMessage">Informe seu código de recuperação para criar outra senha administrativa.</p>
+    <form id="recoverOwnerForm" class="stack-form" autocomplete="off">
+      <label>Código de recuperação<input id="recoverOwnerCode" type="text" name="recoveryCode" maxlength="50" autocomplete="off" required placeholder="XXXX-XXXX-XXXX-XXXX-XXXX-XXXX"></label>
+      <label>Nova senha do dono<input type="password" name="newPassword" minlength="6" maxlength="64" autocomplete="new-password" required placeholder="Mínimo de 6 caracteres"></label>
+      <label>Repetir nova senha<input type="password" name="confirmPassword" minlength="6" maxlength="64" autocomplete="new-password" required></label>
+      <p id="recoverOwnerError" class="auth-error" role="alert" hidden></p>
+      <div class="modal-actions"><button type="button" class="btn btn-secondary" id="cancelOwnerRecovery">Voltar</button><button type="submit" class="btn btn-primary" id="confirmOwnerRecovery">Redefinir senha</button></div>
+    </form>
   </div>
 </div>
 <!-- Configurar senha operacional de abrir/fechar caixa: só pelo dono -->
