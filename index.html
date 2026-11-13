@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#1857bf">
   <meta name="description" content="Sorveteria Manager: vendas por quilo, por bola, casquinhas, embalagens, caixa e relatórios. Dev Kayko.">
-  <title>Sorveteria Manager 1.0.2 | Dev Kayko</title>
+  <title>Sorveteria Manager 1.0.5 | Dev Kayko</title>
   <link rel="stylesheet" href="css/style.css">
   <script defer src="js/data.js"></script>
   <script defer src="js/security.js"></script>
@@ -19,7 +19,7 @@
   <aside class="sidebar" id="sidebar">
     <div class="brand">
       <span class="brand-icon">🍦</span>
-      <span class="brand-copy"><strong id="brandName">Sorveteria Manager</strong><small>PDV DE SORVETERIA • V1.0.2</small></span>
+      <span class="brand-copy"><strong id="brandName">Sorveteria Manager</strong><small>PDV DE SORVETERIA • V1.0.5</small></span>
     </div>
     <nav aria-label="Menu principal" id="navigation">
       <button class="nav-item active" data-page="inicio" title="Visão geral"><span class="nav-icon">▦</span><span>Visão geral</span></button>
@@ -52,12 +52,12 @@
           <article class="stat"><span>Saldo operacional hoje</span><strong id="statBalance">R$ 0,00</strong><small id="statBalanceLabel">Vendas + entradas − saídas</small></article>
         </div>
         <div class="two-col">
-          <div class="panel"><div class="panel-head"><h3>Últimas vendas registradas</h3><button class="link-btn" data-go="relatorios">Histórico completo</button></div><div class="table-wrap"><table><thead><tr><th>Data/hora</th><th>Itens vendidos</th><th>Pagamento</th><th class="right">Valor</th></tr></thead><tbody id="recentSales"></tbody></table></div></div>
+          <div class="panel"><div class="panel-head"><h3>Últimas vendas registradas</h3><button class="link-btn" data-go="relatorios">Histórico completo</button></div><div class="table-wrap"><table><thead><tr><th>Data/hora</th><th>Itens vendidos</th><th>Atendente</th><th>Pagamento</th><th class="right">Valor</th></tr></thead><tbody id="recentSales"></tbody></table></div></div>
           <div class="stack-panels"><div class="panel"><div class="panel-head"><h3>Meta diária</h3><button class="link-btn" data-go="metas">Editar meta</button></div><div id="homeGoal"></div></div><div class="panel"><div class="panel-head"><h3>Avisos de estoque</h3><span class="pill" id="statLow">0</span></div><div class="notice-list" id="lowStockList"></div></div></div>
         </div>
       </section>
 
-      <!-- 02 — PDV: TELA SEM ROLAGEM EXTERNA EM DESKTOP -->
+      <!-- 02 — PDV: TELA RESPONSIVA COM ROLAGEM VERTICAL -->
       <section class="page" id="page-caixa">
         <div class="pdv-toolbar"><div><h2>Frente de caixa <span class="pill">PDV</span> <span id="pdvProfile" class="pdv-profile">Dono</span></h2><small id="posLastSale">Sorvetes por peso ou bola, casquinhas e adicionais.</small></div><div class="action-row"><button type="button" class="btn btn-ghost" id="pdvSwitchUser">⇄ Trocar usuário</button><button type="button" class="btn btn-secondary" id="focusPdv">⛶ Tela expandida</button><button type="button" class="btn btn-secondary" id="openCashBtn">🔐 Abrir caixa</button><button type="button" class="btn btn-danger" id="closeCashBtn">🔐 Fechar caixa e backup</button></div></div>
         <div class="pdv-grid">
@@ -72,14 +72,9 @@
               <div class="ice-input-row" id="iceBallsFields" hidden><label class="compact-label">Quantidade de bolas<input id="iceQty" type="number" min="1" step="1" value="1" inputmode="numeric" data-numpad></label><span class="ice-ball-caption">Valor por bola configurado pelo dono</span></div>
               <div class="ice-price-box"><div><small id="iceQuoteDetail">Digite o peso ou valor</small><strong id="iceCalcTotal">R$ 0,00</strong></div><button type="button" class="btn btn-primary" id="iceAddToCart">+ Adicionar</button></div>
             </div>
-             <div class="pdv-search-area" aria-label="Buscar itens e complementos">
-               <div class="pdv-search-heading"><strong>🔎 Casquinhas, potes e complementos</strong><small>Encontre itens por nome ou categoria</small></div>
-               <label class="pdv-search-label" for="posSearch">Buscar produto ou complemento
-                 <input id="posSearch" type="search" placeholder="Pesquisar casquinha, pote, cobertura..." autocomplete="off">
-               </label>
-              <div class="pdv-filters"><label class="compact-label">Tipo<select id="posKind"><option value="all">Todos os tipos</option><option value="s">Complementos</option><option value="p">Embalagens e produtos</option></select></label><label class="compact-label">Categoria<select id="posCategory"><option value="all">Todas</option></select></label></div>
-              <div class="pdv-quick-qty"><label class="compact-label">Qtd. ao clicar<input id="posQty" type="number" min="1" step="1" value="1" inputmode="numeric" data-numpad></label><button type="button" class="btn btn-ghost" id="resetPosFilters">Limpar filtros</button></div>
-             </div>
+            <div class="pdv-search-area"><div class="pdv-search-heading"><strong>🔎 Casquinhas, potes e complementos</strong><small>Encontre itens por nome ou categoria</small></div><label class="pdv-search-label">Buscar produto ou complemento<input id="posSearch" type="search" placeholder="Pesquisar casquinha, pote, cobertura..." autocomplete="off"></label>
+            <div class="pdv-filters"><label class="compact-label">Tipo<select id="posKind"><option value="all">Todos os tipos</option><option value="s">Complementos</option><option value="p">Embalagens e produtos</option></select></label><label class="compact-label">Categoria<select id="posCategory"><option value="all">Todas</option></select></label></div>
+            <div class="pdv-quick-qty"><label class="compact-label">Qtd. ao clicar<input id="posQty" type="number" min="1" step="1" value="1" inputmode="numeric" data-numpad></label><button type="button" class="btn btn-ghost" id="resetPosFilters">Limpar filtros</button></div></div>
             <div class="pdv-tiles" id="posQuickItems" aria-live="polite"></div>
             <div class="pdv-catalog-foot">Casquinhas e potes são adicionados separadamente e controlam o estoque.</div>
           </div>
@@ -127,20 +122,18 @@
         <div class="stat-grid report-stats"><article class="stat"><span>Vendas</span><strong id="reportSales">R$ 0,00</strong></article><article class="stat"><span>Outras entradas</span><strong id="reportIncome">R$ 0,00</strong></article><article class="stat"><span>Saídas</span><strong id="reportOut">R$ 0,00</strong></article><article class="stat"><span>Saldo operacional</span><strong id="reportBalance">R$ 0,00</strong><small id="reportSign">Positivo / negativo</small></article></div>
         <div class="panel report-block"><div class="panel-head"><h3>Resumo do período</h3></div><div id="reportSummary" class="summary-grid"></div></div>
         <div class="panel report-block"><div class="panel-head"><h3>Detalhamento das vendas por tipo</h3></div><div class="table-wrap"><table><thead><tr><th>Tipo</th><th>Nome</th><th>Qtd.</th><th class="right">Total bruto</th></tr></thead><tbody id="reportItemRows"></tbody></table></div><p class="hint">O total bruto dos itens é antes dos descontos. O total líquido aparece em Vendas.</p></div>
-        <div class="panel report-block"><div class="panel-head"><h3>Vendas registradas</h3><small>As canceladas continuam no histórico</small></div><div class="table-wrap"><table><thead><tr><th>Data/hora</th><th>Itens</th><th>Pagamento</th><th class="right">Total líquido</th><th class="screen-only">Comprovante / Ação</th></tr></thead><tbody id="reportSaleRows"></tbody></table></div></div>
+        <div class="panel report-block"><div class="panel-head"><h3>Vendas registradas</h3><small>As canceladas continuam no histórico</small></div><div class="table-wrap"><table><thead><tr><th>Data/hora</th><th>Itens</th><th>Pagamento</th><th>Atendente</th><th class="right">Total líquido</th><th class="screen-only">Comprovante / Ação</th></tr></thead><tbody id="reportSaleRows"></tbody></table></div></div>
         <div class="panel report-block"><div class="panel-head"><h3>Entradas e saídas avulsas</h3></div><div class="table-wrap"><table><thead><tr><th>Data</th><th>Descrição</th><th>Categoria</th><th>Tipo</th><th class="right">Valor</th></tr></thead><tbody id="reportMovRows"></tbody></table></div></div>
         <div class="panel report-block"><div class="panel-head"><h3>Fechamentos de caixa</h3></div><div class="table-wrap"><table><thead><tr><th>Abriu em</th><th>Fechou em</th><th>Fundo inicial</th><th>Esperado em dinheiro</th><th>Contado</th><th>Diferença</th></tr></thead><tbody id="reportSessionRows"></tbody></table></div></div>
         <p class="hint report-disclaimer">Saldo operacional = vendas + outras entradas − saídas registradas. Não é lucro contábil: estoque comprado, impostos, taxas de cartão e obrigações não lançadas podem alterar o resultado. Valores de Pix/cartão integram o faturamento, mas não o dinheiro físico na gaveta.</p>
       </section>
 
       <!-- 09 — CONFIGURAÇÕES E BACKUP -->
-      <section class="page" id="page-configuracoes"><div class="section-head"><div><h2>Configurações e segurança</h2><p>Personalize o negócio e faça cópias de segurança dos dados.</p></div></div><div class="two-col"><div class="panel"><h3>Dados da sorveteria</h3><form id="settingsForm" class="stack-form"><label>Nome da sorveteria<input id="settingName" required maxlength="70"></label><label>Telefone<input id="settingPhone" maxlength="30"></label><label>Endereço<input id="settingAddress" maxlength="150"></label><button class="btn btn-primary" type="submit">Salvar informações</button></form></div><div class="panel"><h3>Backup e restauração</h3><p>O arquivo JSON salva vendas, histórico, produtos, estoque, movimentações, metas e fechamentos.</p><div class="button-stack"><button class="btn btn-primary" id="exportBackup">↓ Baixar backup JSON</button><button class="btn btn-secondary" id="exportExcelAll">▦ Histórico completo para Excel (.xlsx)</button><label class="btn btn-secondary upload-label">↑ Restaurar backup<input type="file" id="importBackup" accept=".json,application/json" hidden></label></div><small id="lastBackupText"></small><p class="hint">Restaurar substitui os dados deste navegador. Guarde o arquivo em outro local.</p><p class="hint">O Excel é uma cópia para consulta e arquivo, não um banco sincronizado. Exporte novamente após novas vendas.</p></div></div><div class="panel top-gap security-panel">
+      <section class="page" id="page-configuracoes"><div class="section-head"><div><h2>Configurações e segurança</h2><p>Personalize o negócio e faça cópias de segurança dos dados.</p></div></div><div class="two-col"><div class="panel"><h3>Dados da sorveteria</h3><form id="settingsForm" class="stack-form"><label>Nome da sorveteria<input id="settingName" required maxlength="70"></label><label>Telefone<input id="settingPhone" maxlength="30"></label><label>Endereço<input id="settingAddress" maxlength="150"></label><label>Nome do dono (nos comprovantes)<input id="salesOwnerName" maxlength="80" placeholder="Nome do proprietário"></label><button class="btn btn-primary" type="submit">Salvar informações</button></form></div><div class="panel"><h3>Backup e restauração</h3><p>O arquivo JSON salva vendas, histórico, produtos, estoque, movimentações, metas e fechamentos.</p><div class="button-stack"><button class="btn btn-primary" id="exportBackup">↓ Baixar backup JSON</button><button class="btn btn-secondary" id="exportExcelAll">▦ Histórico completo para Excel (.xlsx)</button><label class="btn btn-secondary upload-label">↑ Restaurar backup<input type="file" id="importBackup" accept=".json,application/json" hidden></label></div><small id="lastBackupText"></small><p class="hint">Restaurar substitui os dados deste navegador. Guarde o arquivo em outro local.</p><p class="hint">O Excel é uma cópia para consulta e arquivo, não um banco sincronizado. Exporte novamente após novas vendas.</p></div></div><div class="panel top-gap security-panel">
           <div class="panel-head"><h3>🔐 Senha do dono</h3><span class="pill" id="securityStatus">Não configurada</span></div>
           <p>A senha do dono libera o painel administrativo. A senha operacional do caixa é separada e usada para abrir/fechar o atendimento. O funcionário entra no PDV sem senha de login.</p>
           <button type="button" id="changeCashPassword" class="btn btn-secondary">Alterar senha do dono</button>
-          <p class="hint">Para recuperar a senha do dono, guarde o código de recuperação gerado no primeiro acesso. Ele não aparece novamente e pode ser substituído pelo dono.</p>
-          <button type="button" id="renewRecoveryCode" class="btn btn-secondary">Gerar novo código de recuperação</button>
-          <p class="hint">A recuperação exige esse código. Sem a senha e sem o código, o site não consegue verificar quem é o dono. O sistema é local e não possui recuperação por e-mail.</p>
+          <p class="hint">Guarde seu código de recuperação em local seguro. Sem senha e sem o código previamente criado, não existe recuperação automática.</p><button class="btn btn-secondary" type="button" id="renewRecoveryCode">Gerar novo código de recuperação</button>
         </div>
         <div class="panel top-gap cash-access-panel">
           <div class="panel-head"><h3>🧾 Funcionário e senha do caixa</h3><span id="cashAccessStatus" class="pill">Configure a senha do caixa</span></div>
@@ -165,7 +158,7 @@
       <button type="button" id="printBothReceipts" class="btn btn-secondary">⎙ Imprimir as duas vias</button>
       <button type="button" id="exportLastSaleExcel" class="btn btn-ghost">▦ Registrar esta venda no Excel</button>
     </div>
-    <p class="hint">Selecione a impressora térmica instalada no dispositivo e configure papel de 58 mm; a arte já inclui margens internas confortáveis. Impressão via janela do navegador; Bluetooth direto depende do modelo. Comprovante não fiscal.</p>
+    <p class="hint">Selecione a impressora térmica instalada no dispositivo e configure papel de 58 mm. Comprovante de venda (não substitui documento fiscal).</p>
     <div class="modal-actions"><button type="button" class="btn btn-ghost" id="doneReceipt">Continuar atendendo</button></div>
   </div>
 </div>
@@ -183,40 +176,9 @@
       <label id="loginPasswordWrap">Senha <input id="loginPassword" name="password" type="password" autocomplete="off" minlength="6" maxlength="64" required placeholder="Sua senha"></label>
       <label id="loginPasswordConfirmWrap" hidden>Confirmar senha do dono <input id="loginPasswordConfirm" name="passwordConfirm" type="password" autocomplete="new-password" minlength="6" maxlength="64" placeholder="Repita a senha"></label>
       <p id="loginError" class="auth-error" role="alert" hidden></p>
-      <button type="submit" id="loginSubmit" class="btn btn-primary login-submit">Entrar no sistema</button>
-      <button type="button" id="forgotOwnerPassword" class="recovery-link" hidden>Esqueci a senha do dono</button>
+      <button type="submit" id="loginSubmit" class="btn btn-primary login-submit">Entrar no sistema</button><button type="button" id="forgotOwnerPassword" class="link-btn" hidden>Esqueci a senha do dono</button>
     </form>
     <p class="login-footer">Acesso local • Dados neste navegador • Desenvolvido por <a class="dev-credit-link" href="dev-kayko/index.html" target="_blank" rel="noopener noreferrer" title="Conheça o site Dev Kayko">Dev Kayko</a></p>
-  </div>
-</div>
-<!-- Código de recuperação criado pelo dono: mostrar apenas uma vez. -->
-<div id="recoveryCodeOverlay" class="modal-overlay recovery-overlay" hidden>
-  <div class="modal auth-modal" role="dialog" aria-modal="true" aria-labelledby="recoveryCodeTitle">
-    <div class="auth-icon" aria-hidden="true">🔑</div>
-    <h3 id="recoveryCodeTitle">Guarde seu código de recuperação</h3>
-    <p>Se esquecer a senha do dono, este código permite cadastrar outra senha <b>sem apagar as vendas</b>. Ele aparece somente agora. Não entregue ao funcionário.</p>
-    <div class="recovery-code-display" id="recoveryCodeText" aria-label="Código de recuperação"></div>
-    <div class="recovery-code-actions">
-      <button type="button" class="btn btn-secondary" id="copyRecoveryCode">Copiar código</button>
-      <button type="button" class="btn btn-secondary" id="downloadRecoveryCode">Salvar arquivo TXT</button>
-    </div>
-    <p class="hint">O código anterior deixa de funcionar quando você gerar outro ou redefinir a senha.</p>
-    <button type="button" class="btn btn-primary" id="closeRecoveryCode">Já guardei o código</button>
-  </div>
-</div>
-<!-- Redefinição de senha do dono exige o código criado anteriormente. -->
-<div id="recoverOwnerOverlay" class="modal-overlay recovery-overlay" hidden>
-  <div class="modal auth-modal" role="dialog" aria-modal="true" aria-labelledby="recoverOwnerTitle">
-    <div class="auth-icon" aria-hidden="true">🔐</div>
-    <h3 id="recoverOwnerTitle">Recuperar acesso do dono</h3>
-    <p id="recoverOwnerMessage">Informe seu código de recuperação para criar outra senha administrativa.</p>
-    <form id="recoverOwnerForm" class="stack-form" autocomplete="off">
-      <label>Código de recuperação<input id="recoverOwnerCode" type="text" name="recoveryCode" maxlength="50" autocomplete="off" required placeholder="XXXX-XXXX-XXXX-XXXX-XXXX-XXXX"></label>
-      <label>Nova senha do dono<input type="password" name="newPassword" minlength="6" maxlength="64" autocomplete="new-password" required placeholder="Mínimo de 6 caracteres"></label>
-      <label>Repetir nova senha<input type="password" name="confirmPassword" minlength="6" maxlength="64" autocomplete="new-password" required></label>
-      <p id="recoverOwnerError" class="auth-error" role="alert" hidden></p>
-      <div class="modal-actions"><button type="button" class="btn btn-secondary" id="cancelOwnerRecovery">Voltar</button><button type="submit" class="btn btn-primary" id="confirmOwnerRecovery">Redefinir senha</button></div>
-    </form>
   </div>
 </div>
 <!-- Configurar senha operacional de abrir/fechar caixa: só pelo dono -->
@@ -247,6 +209,10 @@
     </form>
   </div>
 </div>
+
+<div id="employeeSelectOverlay" class="modal-overlay" hidden><div class="modal auth-modal" role="dialog" aria-modal="true"><h3>Quem está atendendo?</h3><p>Selecione seu nome. Ele aparecerá nos comprovantes e relatórios.</p><label>Funcionário cadastrado<select id="employeeSelect"></select></label><p class="hint" id="emptyEmployees" hidden>O dono deve cadastrar pelo menos um funcionário antes de usar esse perfil.</p><div class="modal-actions"><button type="button" class="btn btn-secondary" id="cancelEmployeeSelect">Voltar</button><button type="button" class="btn btn-primary" id="confirmEmployeeSelect">Entrar no PDV</button></div></div></div>
+<div id="recoveryCodeOverlay" class="modal-overlay" hidden><div class="modal auth-modal"><h3>Guarde seu código de recuperação</h3><p>Guarde este código fora do computador. Ele é exibido apenas agora e permite redefinir a senha do dono.</p><div class="recovery-code" id="recoveryCodeText"></div><div class="modal-actions"><button type="button" class="btn btn-secondary" id="copyRecoveryCode">Copiar</button><button type="button" class="btn btn-secondary" id="downloadRecoveryCode">Salvar TXT</button><button type="button" class="btn btn-primary" id="closeRecoveryCode">Já guardei</button></div></div></div>
+<div id="recoverOwnerOverlay" class="modal-overlay" hidden><div class="modal auth-modal"><h3>Recuperar senha do dono</h3><p id="recoverOwnerMessage"></p><form id="recoverOwnerForm" class="stack-form"><label>Código de recuperação<input name="code" required></label><label>Nova senha<input type="password" name="password" minlength="6" required></label><label>Confirmar nova senha<input type="password" name="confirmation" minlength="6" required></label><p class="auth-error" id="recoverOwnerError" hidden></p><div class="modal-actions"><button type="button" class="btn btn-secondary" id="cancelOwnerRecovery">Voltar</button><button type="submit" class="btn btn-primary">Redefinir senha</button></div></form></div></div>
 <div id="receiptPaper" aria-hidden="true"></div>
 <div id="toast" class="toast" role="status" aria-live="polite"></div>
 </body>
