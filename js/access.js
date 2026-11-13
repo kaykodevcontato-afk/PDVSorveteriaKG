@@ -1,5 +1,5 @@
 /*
- * Sorveteria Manager 1.0 — Acesso local simplificado
+ * Papelaria Manager 1.6 — Acesso local simplificado
  * Funcionário: entrada sem senha, exclusivamente PDV.
  * Dono: entrada com senha, acesso administrativo completo.
  * Abertura e fechamento do caixa: senha operacional separada do dono.
