@@ -95,3 +95,66 @@ html[data-theme="dark"] .stock-red{color:#ffb2bc;background:#4c1b28;border-color
 @media(max-width:1100px){.movement-filter-bar{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:550px){.movement-filter-bar{grid-template-columns:minmax(0,1fr);padding:12px;gap:10px}}
 @media print{.movement-filter-bar,.movement-filter-info{display:none!important}}
+
+/* CALENDÁRIO DO RELATÓRIO — roxo adaptável ao tema claro/escuro.
+   O valor original de reportDay/reportMonth continua usado pelo sistema. */
+.date-value-source{position:absolute!important;width:1px!important;height:1px!important;opacity:0!important;pointer-events:none!important;left:0!important;top:0!important;padding:0!important;border:0!important}
+#reportDayWrap,#reportMonthWrap{position:relative;min-width:min(100%,195px)}
+.calendar-trigger{min-height:44px;min-width:190px;width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 13px;border:1px solid var(--line);border-radius:10px;background:var(--surface);color:var(--text);font-weight:700;text-align:left;cursor:pointer;box-shadow:0 1px 3px #00000008}
+.calendar-trigger:hover{border-color:var(--primary);background:var(--primary-soft)}
+.calendar-trigger:focus-visible{outline:2px solid var(--primary);outline-offset:2px}
+.calendar-trigger-icon{font-size:1.14rem;color:var(--primary);font-weight:900}
+.calendar-popover{position:fixed;z-index:130;max-width:calc(100vw - 20px);max-height:calc(100dvh - 16px);overflow-y:auto;padding:14px;border:1px solid var(--line);border-radius:16px;background:var(--surface);color:var(--text);box-shadow:0 16px 48px #14091b48}
+.calendar-popover[hidden]{display:none!important}
+.calendar-head{display:flex;align-items:center;justify-content:space-between;gap:9px;margin-bottom:12px}
+.calendar-head strong{font-size:.93rem;font-weight:800;text-align:center;text-transform:capitalize}
+.calendar-nav{flex:0 0 35px;width:35px;height:35px;border-radius:9px;border:1px solid var(--line);background:var(--surface-2);color:var(--primary);font-size:1.35rem;line-height:1}
+.calendar-nav:hover,.calendar-footer-btn:hover{background:var(--primary-soft);border-color:var(--primary)}
+.calendar-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:5px}
+.calendar-weekday{color:var(--muted);font-size:.71rem;font-weight:800;text-align:center;padding:7px 0}
+.calendar-empty{min-height:35px}
+.calendar-day,.calendar-month{min-height:35px;min-width:0;padding:6px 0;border:1px solid transparent;border-radius:9px;background:transparent;color:var(--text);font-size:.82rem;font-weight:650}
+.calendar-day:hover,.calendar-month:hover{background:var(--primary-soft);color:var(--primary)}
+.calendar-day.is-today{border-color:var(--primary);color:var(--primary)}
+.calendar-day.selected,.calendar-month.selected{background:var(--primary);border-color:var(--primary);color:#fff}
+.calendar-grid-months{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.calendar-month{min-height:43px;font-size:.86rem}
+.calendar-footer{display:flex;justify-content:space-between;align-items:center;gap:9px;margin-top:15px;padding-top:11px;border-top:1px solid var(--line)}
+.calendar-footer-btn{border:1px solid var(--line);border-radius:9px;padding:8px 12px;background:var(--surface-2);color:var(--primary);font-size:.78rem;font-weight:800}
+@media(max-width:430px){.calendar-popover{padding:11px}.calendar-grid{gap:3px}.calendar-trigger{min-width:0}}
+
+/* IMPRESSÃO A4/PDF: espaço REAL em todas as páginas do relatório.
+   A margem @page se aplica novamente em CADA folha, inclusive páginas 2, 3...
+   Não usar `break-inside:avoid-page` em blocos longos: gera cortes/vazios. */
+@media print {
+  @page{size:A4;margin:25mm 22mm 27mm 22mm}
+  .calendar-popover,.calendar-trigger,.date-value-source{display:none!important}
+  body.printing-report,body.printing-report .shell,body.printing-report .main-wrap,body.printing-report main{min-height:0!important;height:auto!important;overflow:visible!important;max-height:none!important}
+  body.printing-report{font-family:Arial,sans-serif!important;background:#fff!important;color:#171717!important;font-size:10px!important}
+  body.printing-report .shell,body.printing-report .main-wrap,body.printing-report main{width:100%!important;display:block!important;margin:0!important;padding:0!important}
+  body.printing-report #page-relatorios{display:block!important;width:100%!important;margin:0!important;padding:0!important}
+  body.printing-report .page:not(#page-relatorios){display:none!important}
+  body.printing-report #printHeader{display:block!important;margin:0 0 9mm!important;padding:0 0 5mm!important;border-bottom:1px solid #b6a6be!important}
+  body.printing-report #printHeader h2{font-size:17px!important;color:#27202e!important;margin-bottom:5px!important}
+  body.printing-report #printHeader p{font-size:10px!important;color:#444!important;line-height:1.45!important;margin-top:3px!important}
+  body.printing-report .report-stats{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:3.5mm!important;margin:0 0 7mm!important;break-inside:avoid-page!important}
+  body.printing-report .stat{padding:3.5mm!important;min-width:0!important;border:1px solid #c9c1cd!important;box-shadow:none!important;break-inside:avoid-page!important}
+  body.printing-report .stat span{font-size:8.5px!important;color:#464046!important}
+  body.printing-report .stat strong{font-size:12px!important;color:#202020!important;overflow-wrap:anywhere!important}
+  body.printing-report .report-block{display:block!important;overflow:visible!important;max-height:none!important;break-inside:auto!important;page-break-inside:auto!important;padding:4.5mm 5mm!important;margin:0 0 8mm!important;border:1px solid #cdc8cf!important;box-shadow:none!important;background:#fff!important;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+  body.printing-report .report-block .panel-head{margin-bottom:3.5mm!important;break-after:avoid-page!important}
+  body.printing-report .report-block h3{font-size:11.5px!important;line-height:1.3!important;color:#1c1a1f!important}
+  body.printing-report .table-wrap{overflow:visible!important;max-width:100%!important;width:100%!important;height:auto!important;max-height:none!important}
+  body.printing-report table{border-collapse:collapse!important;table-layout:fixed!important;width:100%!important;font-size:8.3px!important;line-height:1.42!important}
+  body.printing-report thead{display:table-header-group!important}
+  body.printing-report tfoot{display:table-footer-group!important}
+  body.printing-report tr{break-inside:avoid!important;page-break-inside:avoid!important}
+  body.printing-report th,body.printing-report td{padding:2.6mm 1.5mm!important;border-bottom:1px solid #e0dce1!important;color:#222!important;white-space:normal!important;overflow-wrap:anywhere!important;word-break:normal!important;vertical-align:top!important}
+  body.printing-report th{background:#f2edf5!important;font-weight:750!important}
+  body.printing-report .summary-grid{gap:2mm!important}
+  body.printing-report .summary-grid>div{padding:2.8mm!important;break-inside:avoid!important}
+  body.printing-report .summary-grid strong{font-size:10.5px!important}
+  body.printing-report .report-disclaimer{margin:4mm 0 0!important;font-size:9px!important;line-height:1.5!important;break-inside:avoid-page!important}
+  body.printing-report .screen-only,body.printing-report .movement-filter-bar,body.printing-report .movement-filter-info{display:none!important}
+  /* Recibos térmicos de 58 mm seguem estilo de impressão próprio. */
+}

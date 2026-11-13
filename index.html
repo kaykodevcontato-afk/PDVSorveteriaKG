@@ -13,6 +13,7 @@
   <script defer src="js/access.js"></script>
   <script defer src="js/icecream.js"></script>
   <script defer src="js/app.js"></script>
+  <script defer src="js/calendar.js"></script>
 </head>
 <body class="login-locked">
 <div class="shell">
@@ -123,7 +124,7 @@
 
       <!-- 08 — HISTÓRICO, FECHAMENTOS E RELATÓRIOS -->
       <section class="page" id="page-relatorios"><div class="section-head"><div><h2>Relatórios e histórico de operações</h2><p>Vendas, itens vendidos, entradas, saídas, saldos e fechamentos do período.</p></div><div class="action-row"><button class="btn btn-secondary" id="reportBackup">↓ Backup JSON</button><button class="btn btn-secondary" id="exportExcelReport">▦ Exportar Excel (.xlsx)</button><button class="btn btn-primary" id="printReport">⎙ Imprimir / Salvar PDF</button></div></div>
-        <div class="panel report-filters"><div class="form-row"><label>Período<select id="reportPeriod"><option value="day">Dia</option><option value="month">Mês</option></select></label><label id="reportDayWrap">Selecionar dia<input id="reportDay" type="date"></label><label id="reportMonthWrap" hidden>Selecionar mês<input id="reportMonth" type="month"></label></div></div>
+        <div class="panel report-filters"><div class="form-row"><label>Período<select id="reportPeriod"><option value="day">Dia</option><option value="month">Mês</option></select></label><label id="reportDayWrap">Selecionar dia<input id="reportDay" type="date" class="date-value-source" tabindex="-1" aria-hidden="true"><button type="button" class="calendar-trigger" data-calendar-target="reportDay" aria-label="Escolher dia"><span id="reportDayDisplay">Selecionar data</span><span class="calendar-trigger-icon" aria-hidden="true">▦</span></button></label><label id="reportMonthWrap" hidden>Selecionar mês<input id="reportMonth" type="month" class="date-value-source" tabindex="-1" aria-hidden="true"><button type="button" class="calendar-trigger" data-calendar-target="reportMonth" aria-label="Escolher mês"><span id="reportMonthDisplay">Selecionar mês</span><span class="calendar-trigger-icon" aria-hidden="true">▦</span></button></label></div></div>
         <div id="printHeader"><h2 id="reportCompany">Sorveteria</h2><p id="reportCompanyDetail"></p><p id="reportTitle"></p></div>
         <div class="stat-grid report-stats"><article class="stat"><span>Vendas</span><strong id="reportSales">R$ 0,00</strong></article><article class="stat"><span>Outras entradas</span><strong id="reportIncome">R$ 0,00</strong></article><article class="stat"><span>Saídas</span><strong id="reportOut">R$ 0,00</strong></article><article class="stat"><span>Saldo operacional</span><strong id="reportBalance">R$ 0,00</strong><small id="reportSign">Positivo / negativo</small></article></div>
         <div class="panel report-block"><div class="panel-head"><h3>Resumo do período</h3></div><div id="reportSummary" class="summary-grid"></div></div>
@@ -242,5 +243,11 @@
 <div id="recoverOwnerOverlay" class="modal-overlay" hidden><div class="modal auth-modal"><h3>Recuperar senha do dono</h3><p id="recoverOwnerMessage"></p><form id="recoverOwnerForm" class="stack-form"><label>Código de recuperação<input name="code" required></label><label>Nova senha<input type="password" name="password" minlength="6" required></label><label>Confirmar nova senha<input type="password" name="confirmation" minlength="6" required></label><p class="auth-error" id="recoverOwnerError" hidden></p><div class="modal-actions"><button type="button" class="btn btn-secondary" id="cancelOwnerRecovery">Voltar</button><button type="submit" class="btn btn-primary">Redefinir senha</button></div></form></div></div>
 <div id="receiptPaper" aria-hidden="true"></div>
 <div id="toast" class="toast" role="status" aria-live="polite"></div>
+<!-- Calendário com tema do sistema, controlado em js/calendar.js -->
+<div id="sorveteriaCalendar" class="calendar-popover" role="dialog" aria-modal="false" aria-label="Selecionar data do relatório" hidden>
+  <div class="calendar-head"><button type="button" class="calendar-nav" data-cal-action="prev" aria-label="Mês anterior">‹</button><strong id="calendarHeading"></strong><button type="button" class="calendar-nav" data-cal-action="next" aria-label="Próximo mês">›</button></div>
+  <div id="calendarGrid" class="calendar-grid"></div>
+  <div class="calendar-footer"><button type="button" class="calendar-footer-btn" data-cal-action="today">Hoje</button><button type="button" class="calendar-footer-btn" data-cal-action="close">Fechar</button></div>
+</div>
 </body>
 </html>

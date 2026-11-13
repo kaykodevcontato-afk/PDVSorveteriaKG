@@ -92,3 +92,14 @@ Exemplo: mínimo de 10 unidades: 15 fica verde; 5 fica amarelo; 0 fica vermelho.
 - O filtro do relatório respeita o dia ou mês selecionado, e afeta apenas a lista visual de movimentações. **Os totais do relatório e os arquivos Excel seguem com todos os lançamentos do período**, inclusive cancelamentos claramente identificados.
 - Lançamentos novos salvam data e hora exatas para ordenar. Registros antigos que tinham apenas data utilizam a ordem em que foram registrados para desempate.
 - O banco local `devkayko_sorveteria_v1` é mantido. Exporte seu backup JSON antes de substituir os arquivos no GitHub.
+
+
+## Impressão A4/PDF e calendário — atualização de layout
+
+- Relatório em A4 com **25 mm no topo, 27 mm na base e 22 mm em cada lateral**. O espaço é repetido em **todas as páginas** do relatório, não apenas na primeira.
+- Tabelas com cabeçalho repetido quando prosseguem na próxima folha e linhas sem cortes no meio. Os blocos longos podem continuar na página seguinte em vez de serem espremidos ou cortados.
+- Margens verificadas para impressão ou **Salvar como PDF** pela janela do navegador. De preferência, desative cabeçalho/rodapé extra da impressora do navegador para evitar duplicidade.
+- Calendário próprio no mesmo tema do sistema: **roxo claro e escuro**, seleção de dia, seleção de mês/ano, navegação e botão **Hoje**. Valores continuam no formato nativo (`YYYY-MM-DD`/`YYYY-MM`) para compatibilidade dos relatórios.
+- A atualização altera somente `index.html`, `css/style.css` e adiciona `js/calendar.js`; os scripts de caixa/vendas e a chave de armazenamento foram preservados.
+
+Para atualizar no GitHub, faça um backup JSON, envie os arquivos do ZIP mantendo as pastas, e recarregue a página com `Ctrl + F5`.
