@@ -72,9 +72,14 @@
               <div class="ice-input-row" id="iceBallsFields" hidden><label class="compact-label">Quantidade de bolas<input id="iceQty" type="number" min="1" step="1" value="1" inputmode="numeric" data-numpad></label><span class="ice-ball-caption">Valor por bola configurado pelo dono</span></div>
               <div class="ice-price-box"><div><small id="iceQuoteDetail">Digite o peso ou valor</small><strong id="iceCalcTotal">R$ 0,00</strong></div><button type="button" class="btn btn-primary" id="iceAddToCart">+ Adicionar</button></div>
             </div>
-            <label class="compact-label">Buscar casquinha, pote ou complemento<input id="posSearch" type="search" placeholder="Ex.: casquinha, pote, cobertura" autocomplete="off"></label>
-            <div class="pdv-filters"><label class="compact-label">Tipo<select id="posKind"><option value="all">Todos os tipos</option><option value="s">Complementos</option><option value="p">Embalagens e produtos</option></select></label><label class="compact-label">Categoria<select id="posCategory"><option value="all">Todas</option></select></label></div>
-            <div class="pdv-quick-qty"><label class="compact-label">Qtd. ao clicar<input id="posQty" type="number" min="1" step="1" value="1" inputmode="numeric" data-numpad></label><button type="button" class="btn btn-ghost" id="resetPosFilters">Limpar filtros</button></div>
+             <div class="pdv-search-area" aria-label="Buscar itens e complementos">
+               <div class="pdv-search-heading"><strong>🔎 Casquinhas, potes e complementos</strong><small>Encontre itens por nome ou categoria</small></div>
+               <label class="pdv-search-label" for="posSearch">Buscar produto ou complemento
+                 <input id="posSearch" type="search" placeholder="Pesquisar casquinha, pote, cobertura..." autocomplete="off">
+               </label>
+              <div class="pdv-filters"><label class="compact-label">Tipo<select id="posKind"><option value="all">Todos os tipos</option><option value="s">Complementos</option><option value="p">Embalagens e produtos</option></select></label><label class="compact-label">Categoria<select id="posCategory"><option value="all">Todas</option></select></label></div>
+              <div class="pdv-quick-qty"><label class="compact-label">Qtd. ao clicar<input id="posQty" type="number" min="1" step="1" value="1" inputmode="numeric" data-numpad></label><button type="button" class="btn btn-ghost" id="resetPosFilters">Limpar filtros</button></div>
+             </div>
             <div class="pdv-tiles" id="posQuickItems" aria-live="polite"></div>
             <div class="pdv-catalog-foot">Casquinhas e potes são adicionados separadamente e controlam o estoque.</div>
           </div>

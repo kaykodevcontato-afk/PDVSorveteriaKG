@@ -49,11 +49,11 @@ small{font-size:.74rem}
 
 /* ── 2. NAVEGAÇÃO E COMPONENTES GERAIS ── */
 .shell{display:flex;min-height:100vh}
-.sidebar{flex:0 0 222px;width:222px;position:sticky;top:0;height:100vh;display:flex;flex-direction:column;background:var(--sidebar);color:var(--sidebar-text);padding:17px 10px;z-index:5}
+.sidebar{flex:0 0 248px;width:248px;position:sticky;top:0;height:100vh;display:flex;flex-direction:column;background:var(--sidebar);color:var(--sidebar-text);padding:17px 12px;z-index:5}
 .brand{display:flex;align-items:center;gap:10px;padding:6px 7px 24px;min-width:0}
 .brand-icon{flex:0 0 39px;width:39px;height:39px;border-radius:12px;display:grid;place-items:center;background:#ac71df;color:#fff;font-size:1.45rem;font-weight:900}
 .brand-copy{min-width:0}.brand strong{font-size:.85rem;display:block;line-height:1.2;overflow-wrap:anywhere}.brand small{display:block;font-size:.59rem;margin-top:4px;letter-spacing:1px;color:#9db7d5}
-.sidebar nav{display:grid;gap:3px}.nav-item{display:flex;align-items:center;gap:11px;padding:11px 12px;text-align:left;background:none;border:0;color:var(--sidebar-text);border-radius:10px;font-weight:650;font-size:.81rem;white-space:nowrap}.nav-item:hover,.nav-item.active{background:var(--sidebar-active);color:#fff}.nav-icon{font-size:1.1rem;min-width:21px;text-align:center}
+.sidebar nav{display:grid;gap:4px}.nav-item{display:flex;align-items:flex-start;gap:11px;padding:12px 12px;text-align:left;background:none;border:0;color:var(--sidebar-text);border-radius:10px;font-weight:650;font-size:.81rem;line-height:1.25;white-space:normal;min-width:0}.nav-item:hover,.nav-item.active{background:var(--sidebar-active);color:#fff}.nav-item span:last-child{display:block;flex:1;min-width:0;overflow-wrap:anywhere;word-break:normal}.nav-icon{flex:0 0 21px;font-size:1.1rem;min-width:21px;text-align:center;margin-top:1px}
 .side-foot{margin-top:auto;padding:14px 8px 3px;font-size:.71rem}.side-foot small{display:block;margin-top:8px}.status-dot{display:inline-block;width:8px;height:8px;background:#55d9a3;border-radius:100%;margin-right:4px}
 .main-wrap{display:flex;flex-direction:column;flex:1;min-width:0;min-height:100vh}
 .topbar{min-height:68px;padding:11px 25px;display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--surface);border-bottom:1px solid var(--line)}
@@ -105,8 +105,8 @@ footer{font-size:.72rem;color:var(--muted);text-align:center;padding:14px}
 .pdv-checkout .form-row{flex-wrap:nowrap;gap:6px}.pdv-checkout .form-row label{min-width:0}.pdv-checkout .form-row input,.pdv-checkout .form-row select{width:100%}.summary-line{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:.81rem}.summary-line span{color:var(--muted)}.total-line{background:var(--primary-soft);border-radius:8px;padding:7px 9px}.total-line strong{font-size:1.32rem;color:var(--primary)}.change-row{padding:0 3px}.pdv-keyboard{padding:7px;border-radius:9px;background:var(--surface-2)}.pdv-keyboard-title{display:flex;align-items:center;justify-content:space-between;gap:6px;margin-bottom:5px;font-size:.72rem}.pdv-keyboard-title small{color:var(--muted);font-size:.65rem}.pdv-numpad{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:repeat(5,minmax(28px,1fr));gap:4px}.pdv-numpad button{border:1px solid var(--line);border-radius:7px;background:var(--key);color:var(--text);font-size:1.02rem;font-weight:800;padding:0}.pdv-numpad button:active{transform:scale(.97)}.pdv-numpad .key-action{background:var(--primary-soft)}.pdv-numpad .key-enter{background:var(--primary);color:#fff}.numpad-selected{outline:2px solid var(--primary)!important}.sale-note{margin-top:2px}.finish-btn{padding:11px 8px;width:100%;font-size:.86rem;margin-top:1px}
 
 /* ── 4. RESPONSIVIDADE ── */
-@media(max-width:1200px){.sidebar{flex-basis:205px;width:205px}.stat-grid{gap:9px}.stat{padding:14px}.two-col{grid-template-columns:1fr}.pdv-grid{grid-template-columns:minmax(230px,1.13fr) minmax(195px,.85fr) minmax(275px,1fr)}.pdv-toolbar .btn{padding:8px 10px;font-size:.73rem}}
-@media(max-width:900px){.sidebar{position:fixed;left:-250px;top:0;height:100dvh;width:240px;flex-basis:240px;transition:left .2s;box-shadow:0 0 40px #0003}.sidebar.visible{left:0}.mobile-menu{display:inline-block}.topbar{padding:13px 16px}.top-actions{gap:5px}main{padding:16px}.pdv-grid{grid-template-columns:repeat(2,minmax(0,1fr));align-items:start}.pdv-checkout{grid-column:1/-1}.pdv-tiles{max-height:340px}.pdv-cart-table{max-height:340px}.pdv-toolbar{flex-wrap:wrap;margin-bottom:11px}.pdv-keyboard{max-width:430px;margin:auto;width:100%}.pdv-numpad button{min-height:41px}.stat-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:1200px){.sidebar{flex-basis:228px;width:228px;padding-left:10px;padding-right:10px}.stat-grid{gap:9px}.stat{padding:14px}.two-col{grid-template-columns:1fr}.pdv-grid{grid-template-columns:minmax(230px,1.13fr) minmax(195px,.85fr) minmax(275px,1fr)}.pdv-toolbar .btn{padding:8px 10px;font-size:.73rem}}
+@media(max-width:900px){.sidebar{position:fixed;left:-260px;top:0;height:100dvh;width:252px;flex-basis:252px;transition:left .2s;box-shadow:0 0 40px #0003}.sidebar.visible{left:0}.mobile-menu{display:inline-block}.topbar{padding:13px 16px}.top-actions{gap:5px}main{padding:16px}.pdv-grid{grid-template-columns:repeat(2,minmax(0,1fr));align-items:start}.pdv-checkout{grid-column:1/-1}.pdv-tiles{max-height:340px}.pdv-cart-table{max-height:340px}.pdv-toolbar{flex-wrap:wrap;margin-bottom:11px}.pdv-keyboard{max-width:430px;margin:auto;width:100%}.pdv-numpad button{min-height:41px}.stat-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:610px){.topbar{flex-wrap:wrap}.topbar h1{font-size:.98rem}.theme-btn span{display:none}.welcome{padding:20px;flex-wrap:wrap}.welcome h2{font-size:1.36rem}.section-head{align-items:flex-start;flex-wrap:wrap}.stat{padding:13px}.stat strong{font-size:1.12rem}.pdv-grid{grid-template-columns:1fr}.pdv-checkout{grid-column:auto}.pdv-grid>.panel{padding:13px}.pdv-toolbar .action-row{width:100%}.pdv-toolbar .btn{flex:1}.pdv-tiles{grid-template-columns:repeat(2,minmax(0,1fr));max-height:340px}.summary-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.panel{padding:13px}.form-row label{min-width:120px}.two-col{gap:12px}.action-row{gap:6px}.stat-grid{gap:8px}.report-stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-height:700px) and (min-width:901px){.pdv-toolbar{min-height:42px;margin-bottom:6px}.pdv-grid>.panel{padding:9px}.pdv-grid .panel-head{margin-bottom:4px}.pdv-grid input,.pdv-grid select{padding:5px 8px}.pdv-tile{min-height:77px;padding:7px}.pdv-checkout{gap:3px}.pdv-checkout .pdv-keyboard{padding:5px;min-height:139px}.pdv-numpad{grid-template-rows:repeat(5,minmax(26px,1fr));gap:3px}.pdv-numpad button{min-height:26px}.pdv-catalog-foot{display:none}.finish-btn{padding:8px}}
 
@@ -240,3 +240,80 @@ body.role-operator .pdv-toolbar #pdvSwitchUser{display:inline-block}
 .dev-credit-link:hover,.dev-credit-link:focus-visible{color:var(--primary);text-decoration:underline}
 .sidebar .dev-credit-link:hover,.sidebar .dev-credit-link:focus-visible{color:#fff}
 .dev-credit-link:focus-visible{outline:2px solid var(--primary);outline-offset:3px;border-radius:2px}
+
+.side-foot,.side-foot small{overflow-wrap:anywhere}
+
+
+/* ── 9. PDV COM MAIS ESPAÇO E ROLAGEM NATURAL — 1.0.4 ──
+   No desktop, a página do PDV pode descer normalmente quando faltar altura.
+   Não manter painéis nem teclado cortados dentro de uma altura fixa. */
+@media screen {
+  body.pdv-mode {height:auto;min-height:100dvh;overflow-x:hidden;overflow-y:auto;}
+  body.pdv-mode .shell {height:auto;min-height:100dvh;}
+  body.pdv-mode .main-wrap {height:auto;min-height:100dvh;overflow:visible;}
+  body.pdv-mode main {height:auto;min-height:0;overflow:visible;padding:18px 19px 24px;}
+  #page-caixa.active {display:block;height:auto;min-height:0;}
+  .pdv-toolbar {align-items:flex-start;flex-wrap:wrap;gap:12px;margin-bottom:16px;}
+  .pdv-toolbar .action-row {gap:8px;}
+  .pdv-grid {grid-template-columns:minmax(365px,1.3fr) minmax(255px,.86fr) minmax(300px,1fr);align-items:start;gap:16px;}
+  .pdv-grid>.panel {height:auto;min-height:0;padding:18px;}
+  .pdv-grid .panel-head {margin-bottom:14px;}
+  .pdv-grid h3 {font-size:1rem;}
+  .pdv-catalog,.pdv-cart,.pdv-checkout {overflow:visible;}
+  .pdv-catalog,.pdv-cart {display:flex;flex-direction:column;}
+  .pdv-catalog .ice-panel {padding:14px;gap:11px;margin-bottom:16px;}
+  .pdv-catalog .ice-flavor-list {max-height:none;overflow:visible;gap:7px;}
+  .pdv-catalog .ice-flavor {padding:7px 10px;font-size:.76rem;}
+  .pdv-catalog .ice-top {gap:10px;}
+  .pdv-catalog .ice-input-row {gap:10px;}
+  .pdv-grid input,.pdv-grid select {padding:10px 12px;font-size:.88rem;}
+  .pdv-catalog .ice-mode {padding:10px 7px;font-size:.8rem;}
+  .pdv-catalog .ice-price-box {padding:12px;gap:12px;flex-wrap:wrap;}
+  .pdv-catalog .ice-price-box .btn {padding:11px 14px;font-size:.84rem;}
+  .pdv-search-area {display:grid;gap:11px;padding:16px;border:1px solid var(--line);background:var(--surface-2);border-radius:12px;margin-bottom:15px;min-width:0;}
+  .pdv-search-heading {display:grid;gap:4px;min-width:0;}
+  .pdv-search-heading strong {font-size:.96rem;line-height:1.35;overflow-wrap:anywhere;}
+  .pdv-search-heading small {color:var(--muted);font-size:.75rem;}
+  .pdv-search-label {display:grid;gap:7px;font-size:.82rem;color:var(--text);font-weight:700;min-width:0;}
+  .pdv-search-area #posSearch {width:100%;min-width:0;min-height:44px;border:1px solid var(--line);background:var(--surface);font-size:.88rem;padding:11px 13px;}
+  .pdv-search-area .pdv-filters {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px;margin:0;}
+  .pdv-search-area .pdv-quick-qty {display:flex;gap:11px;align-items:end;margin:0;flex-wrap:wrap;}
+  .pdv-search-area .pdv-quick-qty label {width:135px;max-width:100%;}
+  .pdv-search-area .pdv-quick-qty .btn {min-height:40px;padding:10px 13px;white-space:normal;}
+  .pdv-tiles {max-height:none;min-height:60px;flex:initial;overflow:visible;gap:10px;padding:0;}
+  .pdv-tile {min-height:102px;padding:12px;}
+  .pdv-tile strong {font-size:.82rem;}
+  .pdv-cart-table {flex:initial;min-height:0;max-height:none;overflow-x:auto;overflow-y:visible;}
+  .pdv-cart .cart-foot {flex-wrap:wrap;}
+  .pdv-checkout {display:flex;flex-direction:column;gap:12px;overflow:visible;}
+  .pdv-checkout .pdv-keyboard {flex:none;min-height:0;padding:11px;}
+  .pdv-checkout .pdv-numpad {min-height:0;grid-template-rows:repeat(5,44px);gap:6px;}
+  .pdv-checkout .pdv-numpad button {min-height:44px;}
+  .pdv-checkout .finish-btn {min-height:47px;padding:13px 10px;}
+  .pdv-checkout .total-line {padding:13px;}
+  .pdv-checkout .total-line strong {font-size:1.55rem;}
+}
+/* Telas intermediárias: duas colunas, pagamento em linha inteira. */
+@media screen and (max-width:1240px) {
+  .pdv-grid {grid-template-columns:minmax(350px,1.2fr) minmax(255px,1fr);}
+  .pdv-checkout {grid-column:1/-1;}
+  .pdv-checkout .pdv-keyboard {width:min(100%,470px);align-self:center;}
+}
+/* Celulares e tablets estreitos: empilhar painéis com rolagem da página. */
+@media screen and (max-width:780px) {
+  body.pdv-mode main {padding:13px 12px 22px;}
+  .pdv-grid {grid-template-columns:minmax(0,1fr);gap:13px;}
+  .pdv-checkout {grid-column:auto;}
+  .pdv-grid>.panel {padding:15px;}
+  .pdv-search-area {padding:13px;}
+  .pdv-toolbar .action-row {width:100%;flex-wrap:wrap;}
+  .pdv-toolbar .action-row .btn {flex:1 1 auto;white-space:normal;}
+}
+@media screen and (max-width:400px) {
+  .pdv-search-area .pdv-filters {grid-template-columns:minmax(0,1fr);}
+  .pdv-search-area .pdv-quick-qty label {flex:1 1 130px;}
+  .pdv-checkout .form-row {flex-wrap:wrap;}
+  .pdv-checkout .form-row label {flex:1 1 130px;}
+  .pdv-catalog .ice-price-box .btn {width:100%;}
+  .pdv-search-heading strong {font-size:.9rem;}
+}

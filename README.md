@@ -1,4 +1,4 @@
-# Sorveteria Manager 1.0.2 — Dev Kayko
+# Sorveteria Manager 1.0.4 — Dev Kayko
 
 Sistema de caixa e gestão para sorveteria, feito em **HTML + CSS + JavaScript**, com hospedagem gratuita via **GitHub Pages**. É uma adaptação do Papelaria Manager, mas com **armazenamento separado** (`devkayko_sorveteria_v1`), evitando misturar vendas dos dois estabelecimentos.
 
@@ -94,3 +94,11 @@ sorveteria-manager/
 ```
 
 **Desenvolvido por Dev Kayko.**
+
+## Ajuste de visualização do PDV — versão 1.0.4
+
+- O caixa utiliza **rolagem vertical normal da página** em vez de comprimir todos os componentes na altura da tela.
+- O bloco **Casquinhas, potes e complementos** ganhou mais espaço, título legível, busca em largura total, filtros e quantidade separados.
+- Os cartões de itens, carrinho, teclado e pagamento respeitam alturas naturais: não devem sumir ao descer a página.
+- Em telas intermediárias o PDV passa para duas colunas; no celular os três painéis ficam um abaixo do outro.
+- A mudança de layout foi feita em `index.html` (somente bloco visual) e `css/style.css`. Os scripts e dados locais permanecem iguais.
