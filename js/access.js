@@ -43,7 +43,7 @@ const Access=(()=>{
  $('forgotOwnerPassword').onclick=showRecovery;$('cancelOwnerRecovery').onclick=()=>$('recoverOwnerOverlay').hidden=true;$('recoverOwnerForm').onsubmit=recover;
  $('renewRecoveryCode').onclick=renewRecovery;$('closeRecoveryCode').onclick=()=>{$('recoveryCodeText').textContent='';printRecovery=null;$('recoveryCodeOverlay').hidden=true;};
  $('copyRecoveryCode').onclick=()=>printRecovery&&navigator.clipboard?.writeText(printRecovery).catch(()=>alert('Copie o código manualmente.'));
- $('downloadRecoveryCode').onclick=()=>printRecovery&&downloadBlob('Código de recuperação do dono — Sorveteria Manager:\n'+printRecovery+'\nGuarde em local seguro.','sorveteria-recuperacao.txt','text/plain');
+ $('downloadRecoveryCode').onclick=()=>printRecovery&&downloadBlob('Código de recuperação do dono — Sorveteria:\n'+printRecovery+'\nGuarde em local seguro.','sorveteria-recuperacao.txt','text/plain');
  showLogin();}
  return{init,isOwner,isOperator,isLoggedIn,actor,cashCredential,requireOwner,logout,choose};
 })();

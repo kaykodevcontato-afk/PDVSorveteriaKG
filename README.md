@@ -1,4 +1,4 @@
-# Sorveteria Manager 1.0.7 — Dev Kayko
+# Sorveteria — PDV DE SORVETERIA • V1.0.0 — Dev Kayko
 
 **Pacote completo** do sistema para publicar no GitHub Pages, não apenas um complemento. Inclui `index.html`, `css/style.css`, todos os arquivos `js/`, o portfólio `dev-kayko/index.html` e este README.
 
@@ -84,3 +84,11 @@ Exemplo: mínimo de 10 unidades: 15 fica verde; 5 fica amarelo; 0 fica vermelho.
 - Outros painéis receberam ajustes de margens, espaçamento de botões, formulários e textos informativos.
 - A atualização altera apenas `index.html`, `css/style.css` e `README.md`: os scripts, senhas, vendas, estoque e dados salvos permanecem iguais.
 - Para atualizar apenas o visual no GitHub, envie `index.html` e `css/style.css`, mantendo todas as outras pastas e seus arquivos.
+
+## Atualização: Sorveteria • V1.0.0
+
+- Marca exibida alterada para **Sorveteria**. O texto lateral é **PDV DE SORVETERIA • V1.0.0**. Dados salvos com nomes genéricos antigos (como Sorveteria Manager) são atualizados sem alterar nomes personalizados da loja.
+- Em **Relatórios e histórico → Entradas e saídas avulsas** e **Financeiro → Histórico de movimentações** há filtros de tipo (**Entradas / Saídas / Ambas**), ordenação (**mais recentes / mais antigas**) e quantidade (**10 / 20 / 50 / todas**), com botão para limpar.
+- O filtro do relatório respeita o dia ou mês selecionado, e afeta apenas a lista visual de movimentações. **Os totais do relatório e os arquivos Excel seguem com todos os lançamentos do período**, inclusive cancelamentos claramente identificados.
+- Lançamentos novos salvam data e hora exatas para ordenar. Registros antigos que tinham apenas data utilizam a ordem em que foram registrados para desempate.
+- O banco local `devkayko_sorveteria_v1` é mantido. Exporte seu backup JSON antes de substituir os arquivos no GitHub.
