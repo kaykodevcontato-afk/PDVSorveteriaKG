@@ -1,5 +1,5 @@
 /*
- * PAPELARIA MANAGER 1.3 — EXPORTAÇÃO REAL PARA MICROSOFT EXCEL (.xlsx)
+ * SORVETERIA MANAGER 1.3 — EXPORTAÇÃO REAL PARA MICROSOFT EXCEL (.xlsx)
  * 100% local. Não depende de CDN, APIs externas, npm nem de servidor.
  * OOXML com planilhas e compactação ZIP método STORE (sem compressão).
  * Os registros originais continuam no navegador; Excel é fotografia do período.
@@ -96,7 +96,7 @@ function excelSheetData(period){
   const title=period.type==='day' ? `Dia ${formatDate(period.value)}`:period.type==='month'?`Mês ${period.value.slice(5)}/${period.value.slice(0,4)}`:'Todos os registros';
   const date=localDate();
   const summary=[
-    ['PAINEL / INDICADOR','VALOR'],['Papelaria',db.settings.name||'Minha Papelaria'],['Período',title],
+    ['PAINEL / INDICADOR','VALOR'],['Sorveteria',db.settings.name||'Minha Sorveteria'],['Período',title],
     ['Arquivo gerado em',new Date().toLocaleString('pt-BR')],['Vendas concluídas',xlsxNumber(live.length)],
     ['Vendas canceladas',xlsxNumber(sales.length-live.length)],['Faturamento de vendas',xlsxMoney(salesAmount)],
     ['Entradas extras',xlsxMoney(income)],['Saídas',xlsxMoney(out)],
@@ -105,16 +105,17 @@ function excelSheetData(period){
     ['Meta diária cadastrada',xlsxMoney(db.goals?.daily||0)],['Meta mensal cadastrada',xlsxMoney(db.goals?.monthly||0)],
     ['Nota','Vendas são entradas de faturamento. Entradas extras estão separadas para não somar duas vezes.'],
     ['Nota','Saldo operacional não equivale necessariamente a lucro contábil.'],
+    ['Preço por quilo atual',xlsxMoney(db.settings.weightPrice)],['Preço por bola atual',xlsxMoney(db.settings.scoopPrice)],
     ['Nota','Excel é um relatório exportado. Novas vendas ficam no navegador até a próxima exportação.']
   ];
   const salesRows=[['ID curto','Data/hora','Identificador completo','Status','Pagamento','Qtd. itens','Subtotal (R$)','Desconto (R$)','Total (R$)','Recebido (R$)','Troco (R$)','Observação']];
-  const itemsRows=[['Data/hora','Venda','Status','Tipo','Item / serviço','Qtd.','Preço unit. (R$)','Total bruto (R$)','Custo unit. (R$)']];
+  const itemsRows=[['Data/hora','Venda','Status','Tipo','Descrição / sabores','Quantidade','Unidade','Peso (g)','Preço unit. (R$)','Total bruto (R$)','Custo unit. (R$)']];
   for(const s of sales){
-    const count=(s.items||[]).reduce((n,item)=>n+(Number(item.qty)||0),0);
+    const count=(s.items||[]).length;
     const change=s.payment==='Dinheiro'?Math.max(0,fromCents(toCents(s.received)-toCents(s.total))):0;
     salesRows.push([s.id.slice(0,8).toUpperCase(),excelTimestamp(s.date),s.id,s.voided?'CANCELADA':'CONCLUÍDA',s.payment||'',xlsxNumber(count),xlsxMoney(s.subtotal),xlsxMoney(s.discount),xlsxMoney(s.total),xlsxMoney(s.received),xlsxMoney(change),s.note||'']);
     for(const item of (s.items||[])){
-      itemsRows.push([excelTimestamp(s.date),s.id.slice(0,8).toUpperCase(),s.voided?'CANCELADA':'CONCLUÍDA',item.kind==='p'?'Produto':'Serviço',item.name,xlsxNumber(item.qty),xlsxMoney(item.price),xlsxMoney(Number(item.qty)*Number(item.price)),xlsxMoney(item.cost||0)]);
+      itemsRows.push([excelTimestamp(s.date),s.id.slice(0,8).toUpperCase(),s.voided?'CANCELADA':'CONCLUÍDA',itemTypeLabel(item),item.name,xlsxNumber(item.qty),item.unit||'un.',item.kind==='ice'&&item.mode==='peso'?xlsxNumber(Number(item.weightGrams)):'' ,xlsxMoney(item.price),xlsxMoney(itemLineTotal(item)),xlsxMoney(item.cost||0)]);
     }
   }
   const movRows=[['Data','Tipo','Categoria','Descrição','Valor (R$)','Status','Sessão / caixa']];
@@ -130,7 +131,10 @@ function excelSheetData(period){
   for(const s of sessions)closedRows.push([excelTimestamp(s.openedAt),s.closedAt?excelTimestamp(s.closedAt):'',s.id,xlsxMoney(s.opening),s.closedAt?xlsxMoney(s.expected):'',s.closedAt?xlsxMoney(s.counted):'',s.closedAt?xlsxMoney(s.difference):'',s.closedAt?'FECHADO':'ABERTO']);
   const productsRows=[['Produto','Código','Categoria','Estoque atual','Estoque mínimo','Preço custo (R$)','Preço venda (R$)']];
   for(const p of db.products)productsRows.push([p.name,p.code||'',p.category||'',xlsxNumber(p.stock),xlsxNumber(p.minStock),xlsxMoney(p.cost),xlsxMoney(p.price)]);
+  const flavorsRows=[['Sabor','Categoria']];
+  for(const f of db.flavors)flavorsRows.push([f.name,f.category||'Sorvetes']);
   return [
+    {name:'Sabores',rows:flavorsRows},
     {name:'Resumo',rows:summary,filter:false},
     {name:'Vendas',rows:salesRows},
     {name:'Itens vendidos',rows:itemsRows},
@@ -144,7 +148,7 @@ function excelSheetData(period){
 function exportExcelPeriod(period){
   if(!period||period.type!=='all'&&!/^\d{4}-\d{2}(-\d{2})?$/.test(period.value||''))return toast('Selecione uma data válida antes de exportar.');
   const suffix=period.type==='all'?'historico-completo':`${period.type==='day'?'dia':'mes'}-${period.value}`;
-  downloadXlsx(excelSheetData(period),`papelaria-manager-${suffix}.xlsx`);
+  downloadXlsx(excelSheetData(period),`sorveteria-manager-${suffix}.xlsx`);
 }
 function exportExcelSale(saleId){
   const sale=db.sales.find(s=>s.id===saleId);
@@ -152,9 +156,9 @@ function exportExcelSale(saleId){
   // Usa as mesmas planilhas do relatório, mas com esta venda apenas.
   const sheets=excelSheetData({type:'day',value:recordDay(sale.date)});
   const thisId=sale.id.slice(0,8).toUpperCase();
-  sheets[1].rows=sheets[1].rows.filter((row,i)=>i===0||row[0]===thisId);
-  sheets[2].rows=sheets[2].rows.filter((row,i)=>i===0||row[1]===thisId);
-  sheets.splice(3); // A venda individual não traz movimentos, fechamento ou estoque.
-  sheets[0].rows=[['DETALHE DA VENDA','VALOR'],['Papelaria',db.settings.name],['Identificador',sale.id],['Registrada em',excelTimestamp(sale.date)],['Status',sale.voided?'CANCELADA':'CONCLUÍDA'],['Pagamento',sale.payment],['Subtotal',xlsxMoney(sale.subtotal)],['Desconto',xlsxMoney(sale.discount)],['Total',xlsxMoney(sale.total)],['Obs.',sale.note||'']];
-  downloadXlsx(sheets,`papelaria-venda-${thisId}-${recordDay(sale.date)}.xlsx`);
+  sheets[2].rows=sheets[2].rows.filter((row,i)=>i===0||row[0]===thisId);
+  sheets[3].rows=sheets[3].rows.filter((row,i)=>i===0||row[1]===thisId);
+  sheets.splice(4); // Venda individual: resumo, sabores, venda e itens (sem outros movimentos).
+  sheets[1].rows=[['DETALHE DA VENDA','VALOR'],['Sorveteria',db.settings.name],['Identificador',sale.id],['Registrada em',excelTimestamp(sale.date)],['Status',sale.voided?'CANCELADA':'CONCLUÍDA'],['Pagamento',sale.payment],['Subtotal',xlsxMoney(sale.subtotal)],['Desconto',xlsxMoney(sale.discount)],['Total',xlsxMoney(sale.total)],['Obs.',sale.note||'']];
+  downloadXlsx(sheets,`sorveteria-venda-${thisId}-${recordDay(sale.date)}.xlsx`);
 }

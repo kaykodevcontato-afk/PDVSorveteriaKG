@@ -1,5 +1,5 @@
 /*
-  PAPELARIA MANAGER 1.4 — DEV KAYKO
+  SORVETERIA MANAGER 1.4 — DEV KAYKO
   1. Variáveis / temas
   2. Estrutura / componentes
   3. PDV em tela cheia no desktop
@@ -11,20 +11,20 @@
 :root {
   font-family:Inter,ui-sans-serif,system-ui,-apple-system,'Segoe UI',Arial,sans-serif;
   color-scheme:light;
-  --bg:#f2f6fb; --surface:#ffffff; --surface-2:#f6f9ff;
+  --bg:#fbf5fc; --surface:#ffffff; --surface-2:#fbf5ff;
   --text:#182a47; --muted:#657891; --line:#e0e8f3;
-  --primary:#155bc6; --primary-hover:#0a449e; --primary-soft:#e8f1ff;
-  --sidebar:#10233e; --sidebar-text:#c6d8ef; --sidebar-active:#27496f;
+  --primary:#8049b7; --primary-hover:#63328f; --primary-soft:#f1e4fc;
+  --sidebar:#251536; --sidebar-text:#c6d8ef; --sidebar-active:#53306b;
   --success:#168352; --success-bg:#e6f7ec; --danger:#b52740;
   --danger-bg:#fff0f2; --warning:#95631e; --warning-bg:#fff7e9;
   --input:#ffffff; --key:#ffffff; --shadow:0 8px 24px rgba(20,43,80,.035);
 }
 html[data-theme="dark"] {
   color-scheme:dark;
-  --bg:#0b1424; --surface:#15233a; --surface-2:#1b2d46;
+  --bg:#160f20; --surface:#281c37; --surface-2:#382547;
   --text:#e8f1fe; --muted:#a7bbd4; --line:#2b425e;
-  --primary:#5797ff; --primary-hover:#307bee; --primary-soft:#243b62;
-  --sidebar:#080f20; --sidebar-text:#c3d6ed; --sidebar-active:#29456e;
+  --primary:#c18bff; --primary-hover:#a875e1; --primary-soft:#442a59;
+  --sidebar:#100b19; --sidebar-text:#c3d6ed; --sidebar-active:#29456e;
   --success:#67dda4; --success-bg:#173b33; --danger:#ff8798;
   --danger-bg:#452535; --warning:#f1bc68; --warning-bg:#443721;
   --input:#172942; --key:#223550; --shadow:none;
@@ -51,7 +51,7 @@ small{font-size:.74rem}
 .shell{display:flex;min-height:100vh}
 .sidebar{flex:0 0 222px;width:222px;position:sticky;top:0;height:100vh;display:flex;flex-direction:column;background:var(--sidebar);color:var(--sidebar-text);padding:17px 10px;z-index:5}
 .brand{display:flex;align-items:center;gap:10px;padding:6px 7px 24px;min-width:0}
-.brand-icon{flex:0 0 39px;width:39px;height:39px;border-radius:12px;display:grid;place-items:center;background:#3476e4;color:#fff;font-size:1.45rem;font-weight:900}
+.brand-icon{flex:0 0 39px;width:39px;height:39px;border-radius:12px;display:grid;place-items:center;background:#ac71df;color:#fff;font-size:1.45rem;font-weight:900}
 .brand-copy{min-width:0}.brand strong{font-size:.85rem;display:block;line-height:1.2;overflow-wrap:anywhere}.brand small{display:block;font-size:.59rem;margin-top:4px;letter-spacing:1px;color:#9db7d5}
 .sidebar nav{display:grid;gap:3px}.nav-item{display:flex;align-items:center;gap:11px;padding:11px 12px;text-align:left;background:none;border:0;color:var(--sidebar-text);border-radius:10px;font-weight:650;font-size:.81rem;white-space:nowrap}.nav-item:hover,.nav-item.active{background:var(--sidebar-active);color:#fff}.nav-icon{font-size:1.1rem;min-width:21px;text-align:center}
 .side-foot{margin-top:auto;padding:14px 8px 3px;font-size:.71rem}.side-foot small{display:block;margin-top:8px}.status-dot{display:inline-block;width:8px;height:8px;background:#55d9a3;border-radius:100%;margin-right:4px}
@@ -62,7 +62,7 @@ small{font-size:.74rem}
 main{padding:23px 25px;flex:1;width:100%;max-width:1580px;margin:0 auto}.page{display:none}.page.active{display:block}
 footer{font-size:.72rem;color:var(--muted);text-align:center;padding:14px}
 .btn,.icon-btn{border:0;border-radius:9px;font-weight:750;font-size:.8rem;white-space:nowrap}.btn{padding:10px 13px}.btn-primary{background:var(--primary);color:#fff}.btn-primary:hover{background:var(--primary-hover)}html[data-theme="dark"] .btn-primary{color:#071426}.btn-secondary{background:var(--primary-soft);color:var(--primary)}.btn-danger{background:var(--danger-bg);color:var(--danger)}.btn-ghost{background:var(--surface-2);color:var(--text)}.btn-light{background:#fff;color:#1358bb}.btn-block{display:block;width:100%}.icon-btn{background:var(--surface-2);color:var(--text);padding:9px 12px}.mobile-menu{display:none}.link-btn,.table-action{background:none;border:0;color:var(--primary);font-size:.77rem;font-weight:750;padding:5px;white-space:nowrap}.table-action.danger{color:var(--danger)}
-.welcome{display:flex;align-items:center;justify-content:space-between;gap:15px;background:linear-gradient(115deg,#1254bf,#407def);border-radius:15px;color:white;padding:25px 28px;margin-bottom:18px}.welcome p{color:#e9f1ff;margin-bottom:0}.welcome h2{font-size:1.65rem}.eyebrow{font-size:.69rem;letter-spacing:1.4px;color:#c3daff;font-weight:800}
+.welcome{display:flex;align-items:center;justify-content:space-between;gap:15px;background:linear-gradient(115deg,#793da5,#be72ac);border-radius:15px;color:white;padding:25px 28px;margin-bottom:18px}.welcome p{color:#e9f1ff;margin-bottom:0}.welcome h2{font-size:1.65rem}.eyebrow{font-size:.69rem;letter-spacing:1.4px;color:#c3daff;font-weight:800}
 .stat-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-bottom:17px}.stat{border:1px solid var(--line);border-radius:13px;background:var(--surface);padding:17px;display:grid;gap:8px;min-width:0;box-shadow:var(--shadow)}.stat span{color:var(--muted);font-size:.8rem}.stat strong{font-size:clamp(1.12rem,1.9vw,1.7rem);overflow-wrap:anywhere}.stat small{color:var(--muted)}.stats-three{grid-template-columns:repeat(3,minmax(0,1fr))}
 .two-col{display:grid;grid-template-columns:1.3fr 1fr;gap:15px}.stack-panels{display:grid;gap:15px;align-content:start}.panel{min-width:0;border:1px solid var(--line);border-radius:13px;background:var(--surface);padding:18px;box-shadow:var(--shadow)}.panel-head,.section-head{display:flex;align-items:center;justify-content:space-between;gap:10px}.panel-head{margin-bottom:13px}.panel-head h3{margin:0}.panel-head small{color:var(--muted)}.section-head{margin-bottom:18px}.section-head p{margin-bottom:0}.top-gap{margin-top:16px}
 .form-row{display:flex;align-items:end;gap:11px;flex-wrap:wrap}.form-row label{flex:1;min-width:130px}.form-row .grow{flex:2}.stack-form{display:grid;gap:14px}.action-row,.button-stack{display:flex;gap:9px;flex-wrap:wrap}.button-stack{flex-direction:column;align-items:start;margin:18px 0}.upload-label{cursor:pointer}
@@ -180,7 +180,7 @@ body.pdv-focus .main-wrap{width:100%}
 body.login-locked .shell{visibility:hidden;pointer-events:none}
 .login-overlay{z-index:140;background:linear-gradient(130deg,#061326e8,#0a2651ed);backdrop-filter:blur(9px)}
 .login-modal{max-width:465px;text-align:center;padding:29px 30px 23px;box-shadow:0 30px 95px #0005}
-.login-emblem{width:58px;height:58px;border-radius:18px;background:linear-gradient(145deg,#2b79ed,#1250af);display:grid;place-items:center;color:white;font-size:2rem;font-weight:900;margin:0 auto 13px}
+.login-emblem{width:58px;height:58px;border-radius:18px;background:linear-gradient(145deg,#a35acd,#63328f);display:grid;place-items:center;color:white;font-size:2rem;font-weight:900;margin:0 auto 13px}
 .login-modal h2{font-size:1.4rem;margin-bottom:6px}.login-subtitle{font-size:.85rem;margin-bottom:19px}
 .login-role-picker{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:17px}
 .login-role{border:2px solid var(--line);background:var(--surface-2);color:var(--text);border-radius:13px;padding:14px 8px;display:flex;flex-direction:column;align-items:center;gap:6px}
@@ -202,7 +202,33 @@ body.role-operator .pdv-toolbar #pdvSwitchUser{display:inline-block}
 
 .pdv-profile{font-size:.7rem;display:inline-flex;vertical-align:middle;padding:5px 8px;color:var(--primary);background:var(--primary-soft);border-radius:30px;font-weight:800;white-space:nowrap}
 
-/* Crédito clicável do desenvolvedor: abre o portfólio local em nova aba. */
+/* ── SORVETERIA: CALCULADORA DE PESO, VALOR E BOLAS ── */
+.ice-panel{flex:0 0 auto;display:grid;gap:6px;border:1px solid var(--line);border-radius:11px;padding:9px;background:var(--surface-2);margin-bottom:8px}
+.ice-top{display:flex;gap:4px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.ice-top strong{font-size:.83rem}.ice-top span{color:var(--muted);font-size:.67rem}
+.ice-modes{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.ice-mode{background:var(--surface);border:1px solid var(--line);border-radius:8px;color:var(--text);padding:7px 5px;font-size:.76rem;font-weight:800}
+.ice-mode.selected{background:var(--primary);border-color:var(--primary);color:#fff}
+.ice-flavor-label{font-size:.71rem;font-weight:750;color:var(--muted)}.ice-flavor-label small{font-size:.61rem;font-weight:500}
+.ice-flavor-list{display:flex;gap:4px;flex-wrap:wrap;max-height:53px;overflow-y:auto;scrollbar-width:thin;align-content:flex-start}
+.ice-flavor{font-size:.68rem;line-height:1.15;padding:5px 7px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--text);font-weight:700}
+.ice-flavor[aria-pressed="true"]{background:var(--primary);border-color:var(--primary);color:#fff}
+.ice-input-row{display:grid;grid-template-columns:1.2fr 1fr;gap:6px;align-items:end}
+.ice-input-row label{min-width:0}
+.ice-ball-caption{color:var(--muted);font-size:.7rem;padding-bottom:7px}
+.ice-price-box{background:var(--surface);border:1px solid var(--line);border-radius:9px;display:flex;align-items:center;justify-content:space-between;padding:7px 9px;gap:9px}
+.ice-price-box>div{display:grid;gap:1px;min-width:0}.ice-price-box small{font-size:.65rem;color:var(--muted)}.ice-price-box strong{color:var(--primary);font-size:1.25rem;line-height:1.1}
+.ice-price-box .btn{padding:9px 11px;font-size:.76rem}
+.ice-admin-info{margin-top:18px;border:1px solid var(--line);border-radius:9px;padding:12px;font-size:.8rem;line-height:1.5;color:var(--muted)}
+.ice-admin-grid{grid-template-columns:1.12fr .88fr}
+.pdv-catalog .compact-label{line-height:1.15}.pdv-catalog .pdv-quick-qty{margin-bottom:5px}
+.pdv-catalog .pdv-filters{margin:5px 0}
+.total-line{padding:10px 11px;background:var(--primary-soft)}.total-line strong{font-size:1.65rem}
+@media(min-width:901px){body.pdv-mode .pdv-catalog{min-height:0}body.pdv-mode .pdv-tiles{min-height:55px;max-height:none}}
+@media(max-width:900px){.ice-panel{gap:7px}.ice-admin-grid{grid-template-columns:1fr}}
+@media(max-width:430px){.ice-input-row{grid-template-columns:1fr 1fr}.ice-price-box strong{font-size:1.09rem}}
+
+/* Link do crédito Dev Kayko — página local do portfólio. */
 .dev-credit-link{color:inherit;font-weight:800;text-decoration:none;text-underline-offset:3px}
 .dev-credit-link:hover,.dev-credit-link:focus-visible{color:var(--primary);text-decoration:underline}
 .sidebar .dev-credit-link:hover,.sidebar .dev-credit-link:focus-visible{color:#fff}

@@ -1,74 +1,79 @@
-# Papelaria Manager 1.6.2 — Dev Kayko
+# Sorveteria Manager 1.0.1 — Dev Kayko
 
-Sistema de gestão de papelaria e gráfica rápida, desenvolvido para rodar em **GitHub Pages** com HTML, CSS e JavaScript, sem servidor. Mantém o PDV completo, estoque, produtos e serviços, vendas, fechamento, Excel, comprovantes 58 mm, metas, despesas, funcionários, backup e modo claro/escuro.
+Sistema de caixa e gestão para sorveteria, feito em **HTML + CSS + JavaScript**, com hospedagem gratuita via **GitHub Pages**. É uma adaptação do Papelaria Manager, mas com **armazenamento separado** (`devkayko_sorveteria_v1`), evitando misturar vendas dos dois estabelecimentos.
 
-## Novidade da versão 1.6.2 — Link do desenvolvedor
+## Vendas no PDV
 
-Ao clicar no nome **Dev Kayko** no rodapé, no menu lateral ou na tela inicial de escolha de perfil, o site abre **`dev-kayko/index.html`** em outra aba. Esta página é a apresentação profissional fornecida pelo desenvolvedor (websites, sistemas e gráfica rápida). O PDV permanece aberto.
+- **Por peso:** digite os gramas informados pela balança. O PDV calcula `peso em gramas ÷ 1000 × preço por quilo` e mostra o total, arredondado a centavos.
+- **Por valor:** informe quantos reais o cliente quer gastar; o sistema calcula o **peso aproximado**, e mantém o valor informado no total do item. Exemplo: R$ 20,00 com preço de R$ 69,90/kg equivale a aproximadamente 286,1 g.
+- **Por bolas:** informe a quantidade de bolas; o sistema calcula `quantidade × preço por bola`.
+- **Sabores:** escolha um ou mais sabores. Pode cadastrar novos sabores, editar nomes ou excluir os antigos, no painel do dono.
+- **Casquinhas, cascões, copos e potes:** adicione pelos botões do catálogo do PDV, cada um com preço e estoque próprios. É possível combinar várias bolas com uma casquinha na mesma venda.
+- **Adicionais:** coberturas, granulado, milk-shake e outros itens editáveis.
+- **Pagamento:** dinheiro (com troco), Pix, débito, crédito; desconto em reais ou porcentagem.
 
-A pasta **`dev-kayko/` é indispensável**: envie-a junto com os demais arquivos para o repositório. Para atualizar uma instalação existente, mantenha o mesmo endereço publicado e faça um backup JSON antes de substituir arquivos.
+**Atenção:** os preços iniciais de R$ 69,90/kg e R$ 6,00/bola, assim como os preços de casquinhas e potes, são **EXEMPLOS**, não refletem o seu comércio. Configure antes de vender. Os produtos de embalagem iniciam com estoque zero para não representar quantidade fictícia; informe as quantidades reais em **Casquinhas e embalagens**.
 
-## Acesso simplificado — introduzido na versão 1.6
+### Exemplo de venda
 
-| Ação | Funcionário | Dono |
-| --- | --- | --- |
-| Entrar no sistema | **Sem senha**, pelo botão **Funcionário** | **Com senha do dono** |
-| Acessar o PDV, registrar vendas, imprimir comprovantes | Sim | Sim |
-| Abrir, fechar e desbloquear caixa | **Senha operacional do caixa** | **Senha operacional do caixa** |
-| Sair da tela expandida do PDV e entrar nas áreas administrativas | Não, salvo se informar a **senha do dono** | Senha do dono, quando solicitada |
-| Produtos, estoque, preços, financeiro, salários, metas e relatórios | Não | Sim |
-| Exportar Excel, fazer backup JSON e configurar senhas | Não | Sim |
+1. No PDV, selecione *Chocolate* e *Morango*.
+2. Em **Por peso → Peso da balança**, digite `350` (gramas). Com preço de R$ 69,90/kg, o total será **R$ 24,47**.
+3. Clique em **Adicionar**.
+4. Se o cliente também levar um pote de 500 ml, toque no botão **Pote 500 ml** do catálogo (depois de configurar seu estoque).
+5. Confira o **TOTAL PARA O CLIENTE** à direita, selecione pagamento e conclua a venda.
+6. Imprima a via do cliente e/ou da loja ou reimprima pelo histórico.
 
-**Não existe mais senha de login do funcionário.** A senha operacional é usada exclusivamente para abrir/fechar/desbloquear o caixa, e não permite entrar no painel administrativo. A senha do dono é usada para acessar todos os menus. Mantenha as duas **diferentes** e não informe a senha do dono aos funcionários.
+Ao digitar **Valor informado (R$)**, o total desse sorvete será o valor inserido, e o peso exibido será aproximado. A impressão térmica depende de o navegador/sistema operacional reconhecer a impressora Bluetooth 58 mm; não há comunicação direta com a balança nem com a impressora no projeto estático.
 
-### Configurar no primeiro uso
+## Área do dono e funcionário
 
-1. Abra o site. Se ainda não existir senha do dono, escolha **Dono** e crie uma senha com 6 a 64 caracteres.
-2. Entre em **Configurações → Funcionário e senha do caixa → Criar senha do caixa**.
-3. Confirme a senha do dono e crie outra senha (de 6 a 64 caracteres) para abrir/fechar o caixa.
-4. Clique em **Trocar usuário → Funcionário → Entrar no PDV sem senha**.
-5. O funcionário poderá usar o PDV e imprimir comprovantes. Para abrir e fechar a gaveta virtual, informará apenas a senha operacional do caixa.
+O dono cria uma senha no primeiro uso e configura uma **senha operacional do caixa** diferente. O funcionário acessa o PDV sem senha de login, mas informa a senha operacional para abrir ou fechar o caixa. Relatórios, estoque, sabores, custos, metas, salários, backup e configurações ficam no menu do dono.
 
-O funcionário não acessa o histórico, Excel nem o backup. Ao fechar o caixa pelo perfil funcionário, o fechamento fica gravado para o dono consultar depois. **O backup JSON deve ser baixado pelo dono diariamente**; ele não é baixado automaticamente no perfil funcionário.
+**Atenção à segurança:** a proteção de perfis funciona na interface. Como tudo fica no navegador, um usuário técnico com acesso ao mesmo computador pode consultar os dados. Para proteção real, é necessário um sistema com servidor e autenticação.
 
-### Migração dos dados antigos
+## Relatórios e backup
 
-- A mesma chave local (`devkayko_papelaria_v1`) foi preservada. Não é necessário apagar dados.
-- **Versão 1.5:** se havia uma senha de login de funcionário, ela passa a ser a **senha operacional do caixa**. A senha do dono permanece igual. O funcionário agora entra sem senha.
-- **Versão 1.4.1 ou anteriores:** a senha antiga do caixa já era a senha do dono; ela permanece como senha do dono. O proprietário precisa cadastrar **uma nova senha operacional do caixa** nas Configurações antes de abrir/fechar o caixa. Não compartilhe a senha do dono com funcionários.
-- Os cadastros, vendas, sessões, relatórios e configurações permanecem no mesmo navegador e no mesmo endereço do site, desde que você não limpe os dados.
-- **Antes de substituir os arquivos:** entre como dono na versão atual, faça backup JSON e guarde uma cópia fora do computador; faça também exportação Excel se desejar.
+- Histórico das vendas detalhando **gramas**, preço/kg, bolas, sabores, casquinhas e embalagem.
+- Resumos de entradas, saídas, resultado positivo/negativo do dia ou mês, metas e fechamento do caixa.
+- Impressão de relatório A4/PDF com margens; impressão de vias **não fiscais** do cliente/loja em papel **58 mm**.
+- Exportação **Excel (.xlsx)** por dia, mês ou histórico completo, com abas Resumo, Vendas, Itens vendidos, Entradas, Saídas, Fechamentos, Estoque e Sabores.
+- Backup **JSON** e restauração local.
 
-## Instalar no GitHub Pages
+**Os arquivos Excel não são atualizados automaticamente**: gere um novo relatório depois de realizar novas vendas. Faça backup JSON ao final de cada expediente. O saldo operacional não equivale necessariamente a lucro contábil.
 
-1. Baixe e extraia o ZIP da versão 1.6.2.
-2. Envie para o repositório `index.html` e as pastas `css`, `js` e **`dev-kayko`**, substituindo os arquivos antigos.
-3. Em **Settings → Pages** selecione `Deploy from a branch`, branch `main`, pasta `/ (root)`.
-4. Atualize o navegador com `Ctrl + F5` e configure a senha operacional do caixa se necessário.
-5. Faça uma venda de teste e confira o fechamento no perfil do dono.
+## Portfólio do desenvolvedor (novo)
 
-### Arquivos editáveis
+O crédito **Dev Kayko** no menu lateral, no rodapé e na tela de acesso é clicável. Ele abre uma nova aba com o **index.html do portfólio fornecido**, incluído na pasta `dev-kayko/`.
+
+O link é **relativo** (`dev-kayko/index.html`): funciona tanto no GitHub Pages quanto ao abrir o sistema localmente, desde que a pasta seja enviada junto com o restante do projeto. Não substitua o `index.html` principal do PDV pelo arquivo do portfólio.
+
+## Publicar no GitHub Pages
+
+1. Crie um novo repositório no GitHub (exemplo: `sorveteria-manager`).
+2. Envie os arquivos `index.html`, `README.md` e as pastas `css`, `js` e `dev-kayko` **preservando a estrutura**.
+3. Em **Settings → Pages**, selecione **Deploy from a branch** → branch **main** → pasta **/(root)** → **Save**.
+4. Abra `https://SEU-USUARIO.github.io/sorveteria-manager/` (substitua pelo usuário e nome real do repositório).
+5. No primeiro acesso, crie a senha do dono, entre em **Sabores e preços** e ajuste os valores; depois configure a senha do caixa e as quantidades em estoque.
+
+**Evite usar o mesmo repositório da papelaria:** a sorveteria é outro projeto e usa outra base local. O sistema não sincroniza dispositivos; os registros permanecem no navegador/dispositivo em uso. Ao mudar de computador, use o backup JSON.
+
+## Estrutura dos arquivos
 
 ```text
-papelaria-manager/
-├── index.html       # Páginas, botões, login, formulários e links para o portfólio
+sorveteria-manager/
+├── index.html       # Interface, páginas e formulários
 ├── dev-kayko/
-│   └── index.html   # Página de apresentação profissional do desenvolvedor
-├── css/style.css    # Cores, telas, PDV compacto e impressão
-├── js/data.js       # Cadastro, chave de armazenamento e backup
-├── js/security.js   # Verificação local das senhas (PBKDF2)
-├── js/access.js     # Perfis: funcionário sem senha e dono com senha
-├── js/excel.js      # Exportação Excel (.xlsx)
-├── js/app.js        # Fluxo do caixa, vendas, relatórios e integração
+│   └── index.html   # Portfólio Dev Kayko (fornecido pelo usuário)
+├── css/
+│   └── style.css    # Cores, temas, layouts, impressão
+├── js/
+│   ├── data.js      # Dados, preços de exemplo, armazenamento e backup
+│   ├── icecream.js  # Regra de cálculo por peso/valor/bola e sabores
+│   ├── app.js       # Caixa, venda, estoque, histórico, relatórios
+│   ├── excel.js     # Geração de Excel .xlsx no navegador
+│   ├── access.js    # Acesso de dono e funcionário
+│   └── security.js  # Senhas locais (PBKDF2)
 └── README.md
 ```
 
-**Impressão térmica:** vias de cliente/loja em 58 mm pela janela de impressão do navegador, sem conexão Bluetooth nativa garantida. Comprovante não fiscal.
-
-## Segurança e dados — importante
-
-GitHub Pages é hospedagem estática. O controle de perfis acima **esconde menus e bloqueia ações na interface**, mas **não oferece proteção real** a salários, valores ou senhas contra alguém com acesso técnico ao navegador, ao código ou aos backups. As informações são armazenadas localmente, no próprio dispositivo. Para confidencialidade efetiva e acesso individual de vários funcionários, é necessário um backend com autenticação, banco de dados e regras de autorização no servidor. Use o projeto somente em equipamento confiável.
-
-Os arquivos Excel são cópias exportadas, não planilhas sincronizadas. Faça backup JSON frequente (de preferência todos os dias).
-
-Desenvolvido por **Dev Kayko** · 2026.
+**Desenvolvido por Dev Kayko.**
