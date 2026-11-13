@@ -1,4 +1,4 @@
-# Sorveteria Manager 1.0.6 — Dev Kayko
+# Sorveteria Manager 1.0.7 — Dev Kayko
 
 **Pacote completo** do sistema para publicar no GitHub Pages, não apenas um complemento. Inclui `index.html`, `css/style.css`, todos os arquivos `js/`, o portfólio `dev-kayko/index.html` e este README.
 
@@ -64,7 +64,7 @@ dev-kayko/index.html
 **Testes realizados:** execução simulada no Chromium com criação de dono, código de recuperação, cadastro de funcionário, senha do caixa, vendas por peso e bola, impressão das duas vias, histórico e Excel. A impressão física e a publicação no seu repositório ainda não foram verificadas.
 
 
-## Semáforo de estoque — v1.0.6
+## Semáforo de estoque — v1.0.7
 
 O estoque agora utiliza três cores nas telas **Visão geral → Avisos de estoque**, **Casquinhas, embalagens e estoque** e **Frente de caixa (PDV)**:
 
@@ -75,3 +75,12 @@ O estoque agora utiliza três cores nas telas **Visão geral → Avisos de estoq
 Exemplo: mínimo de 10 unidades: 15 fica verde; 5 fica amarelo; 0 fica vermelho. Para mudar o limite, entre no perfil do dono em **Casquinhas e embalagens → Editar → Estoque mínimo**. Adicionamos o filtro **Somente esgotados**. Todas as cores têm texto e legenda para acessibilidade.
 
 **Atualização:** substitua `index.html`, `css/style.css` e `js/app.js`; mantenha a mesma chave de dados, endereço do site e demais arquivos. Antes de atualizar, guarde um backup JSON.
+
+
+## Ajuste visual da versão 1.0.7
+
+- A seção **Backup e restauração** tem título, descrição, ações e avisos separados, com espaço consistente em todas as bordas.
+- Os botões de backup, Excel e restauração não ficam mais colados entre si; cada ação ocupa sua própria linha em telas normais.
+- Outros painéis receberam ajustes de margens, espaçamento de botões, formulários e textos informativos.
+- A atualização altera apenas `index.html`, `css/style.css` e `README.md`: os scripts, senhas, vendas, estoque e dados salvos permanecem iguais.
+- Para atualizar apenas o visual no GitHub, envie `index.html` e `css/style.css`, mantendo todas as outras pastas e seus arquivos.
