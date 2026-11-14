@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#54134f">
+  <meta name="description" content="Cardápio ilustrado da sorveteria: picolés, bolas de sorvete, milk-shakes, paletas, açaí e muito mais.">
+  <title>Cardápio Ilustrado | Sorveteria — Dev Kayko</title>
+  <link rel="stylesheet" href="css/catalogo.css">
+  <script defer src="js/cardapio-dados.js"></script>
+  <script defer src="js/catalogo.js"></script>
+</head>
+<body>
+<a href="#conteudo" class="skip-link">Pular para o cardápio</a>
+<div class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="catalogo.html" aria-label="Sorveteria — Início do cardápio"><span class="brand-symbol">🍦</span><span><strong>Sorveteria</strong><small>Cardápio ilustrado</small></span></a>
+    <div class="top-actions">
+      <button id="toggleTheme" class="small-btn" type="button" aria-label="Alternar tema claro e escuro">◐ <span id="themeText">Escuro</span></button>
+      <button id="printMenu" class="small-btn" type="button">⎙ Imprimir / PDF</button>
+      <button id="exportMenu" class="small-btn" type="button" title="Exporta uma lista de produtos e preços em JSON">↓ Dados JSON</button>
+    </div>
+  </div>
+</div>
+<main id="conteudo" class="container">
+  <section class="hero" aria-labelledby="heroTitle">
+    <div class="hero-copy">
+      <span class="eyebrow">SABORES PARA TODOS OS MOMENTOS</span>
+      <h1 id="heroTitle">Seu momento mais <em>delicioso!</em></h1>
+      <p>Encontre seus sabores favoritos, confira os tamanhos e conheça todas as opções do nosso cardápio.</p>
+      <div class="hero-chips"><span>🍓 Picolés</span><span>🍨 Sorvetes</span><span>🥤 Milk-shakes</span><span>💜 Açaí</span></div>
+      <a class="primary-link" href="#catalogo">Explorar sabores <span aria-hidden="true">↓</span></a>
+    </div>
+    <img src="assets/morango-referencia.jpg" alt="Picolés de morango sobre morangos frescos em uma caixa de madeira, como referência do cardápio" width="950" height="938" fetchpriority="high">
+  </section>
+
+  <section class="highlights" aria-label="Preços em destaque">
+    <article><span>Picolé tradicional</span><strong>R$ 2,00</strong><small>por unidade</small></article>
+    <article><span>Sorvete por peso</span><strong>R$ 44,99</strong><small>por kg</small></article>
+    <article><span>Milk-shake</span><strong>R$ 12,00</strong><small>300 ml tradicional</small></article>
+    <article><span>Paleta premium</span><strong>R$ 10,00</strong><small>por unidade</small></article>
+  </section>
+
+  <section class="browse" id="catalogo" aria-labelledby="browseTitle">
+    <div class="browse-title"><div><span class="eyebrow purple">ESCOLHA O SEU FAVORITO</span><h2 id="browseTitle">Nosso cardápio completo</h2><p>Sabores e preços organizados para facilitar a consulta.</p></div><span id="menuCount" class="menu-count" aria-live="polite"></span></div>
+    <div class="filter-panel">
+      <label class="search-label" for="searchProducts"><span>Pesquisar sabor ou produto</span><input id="searchProducts" type="search" placeholder="Ex.: morango, brigadeiro, açaí, 500 ml..." autocomplete="off"></label>
+      <label class="select-label" for="categorySelect"><span>Categoria</span><select id="categorySelect"><option value="all">Todas as categorias</option></select></label>
+      <button id="resetFilters" class="reset-btn" type="button">Limpar filtros</button>
+    </div>
+    <div id="categoryChips" class="category-chips" aria-label="Acesso rápido às categorias"></div>
+    <div id="catalogSections"></div>
+    <p class="empty-state" id="emptyState" role="status" hidden>Nenhum sabor encontrado. Experimente outra pesquisa ou limpe os filtros.</p>
+  </section>
+  <div class="info-note"><strong>Observação:</strong> as imagens são ilustrações de apresentação, criadas com auxílio de IA, e podem diferir do produto real. Volumes não informados no cardápio original permanecem sem indicação de tamanho.</div>
+</main>
+<footer class="footer"><div class="container footer-inner"><div><strong>🍦 Sorveteria</strong><span>Sabores especiais em cada momento.</span></div><p>Desenvolvido por <strong>Dev Kayko</strong> · Cardápio de consulta, sem pagamento online.</p></div></footer>
+<div class="lightbox" id="lightbox" hidden><div class="lightbox-backdrop" data-close-lightbox></div><div class="lightbox-dialog" role="dialog" aria-modal="true" aria-labelledby="lightboxTitle"><button class="lightbox-close" type="button" id="closeLightbox" aria-label="Fechar foto">×</button><img id="lightboxImage" alt=""><h3 id="lightboxTitle"></h3><p id="lightboxPrice"></p></div></div>
+</body>
+</html>

@@ -1,105 +1,50 @@
-# Sorveteria — PDV DE SORVETERIA • V1.0.0 — Dev Kayko
+# Sorveteria Manager 1.2.4 — Código organizado para VS Code e GitHub
 
-**Pacote completo** do sistema para publicar no GitHub Pages, não apenas um complemento. Inclui `index.html`, `css/style.css`, todos os arquivos `js/`, o portfólio `dev-kayko/index.html` e este README.
+**Dev Kayko** | Versão de primeiro acesso com catálogo e estoque inicial zerado.
 
-> **Antes de atualizar:** exporte um **backup JSON** e o relatório Excel do site atual. Esta edição completa foi reconstruída a partir dos arquivos HTML disponíveis e das funcionalidades descritas nas versões anteriores — **não é uma cópia byte a byte do código JavaScript da sua versão 1.0.4 publicada**. A chave de armazenamento antiga (`devkayko_sorveteria_v1`) foi mantida e os dados básicos são normalizados, mas teste uma cópia antes de substituir sua loja em produção. Evite apagar cache ou os dados do site.
-
-## Novidade — Quem fez cada venda
-
-- **Proprietário:** entra com a senha do dono, acessa **Configurações → Nome do dono** e define como aparecerá nos comprovantes.
-- **Funcionário:** continua **sem senha de login**; precisa escolher seu nome entre os funcionários previamente cadastrados antes de entrar no PDV.
-- **Venda:** salva um campo `seller` com `name`, `role` e `id` dentro do registro. Mesmo que depois altere o nome do funcionário, os registros anteriores mantêm o nome de quando a venda ocorreu.
-- **Comprovante:** título **Comprovante de venda**, com nome do atendente nas vias **Cliente** e **Loja**. É um recibo não fiscal; não substitui NFC-e ou nota fiscal exigida pela legislação.
-- **Relatórios A4/PDF:** coluna **Atendente** na tabela de vendas.
-- **Excel XLSX:** colunas **Atendente** e **Perfil do atendente** na aba **Vendas**; atendente na aba **Itens vendidos**.
-- **Backup JSON:** inclui a identificação em cada venda.
-- **Vendas anteriores sem autor:** mostram **Não identificado** em vez de atribuir a venda a alguém arbitrariamente.
-
-## Funcionalidades do sistema
-
-- Sorvetes por **gramas**, **valor digitado em R$** e **quantidade de bolas**, com cálculo de total.
-- Escolha de um ou mais sabores; controle editável de preço por quilo e por bola.
-- Catálogo de casquinhas, potes, copos, complementos e estoque.
-- Carrinho, descontos, dinheiro com troco, Pix, débito e crédito.
-- Caixa com senha operacional distinta da senha do dono; funcionário acessa somente PDV.
-- Gerenciamento de produtos, sabores, funcionários, salários, entradas e saídas, metas, fechamento e cancelamentos.
-- Relatórios do dia ou mês, PDF, Excel e backup/restauração JSON.
-- Impressão por navegador em **58 mm**, com margens internas, duas vias e reimpressão pelo histórico.
-- Modo claro/escuro, layout responsivo e rolagem vertical para facilitar o atendimento.
-- Crédito Dev Kayko clicável com portfólio em `dev-kayko/index.html`.
-- Código de recuperação para senha do dono, gerado no primeiro acesso (guarde fora do dispositivo).
-
-## Atualizar GitHub Pages
-
-1. No projeto atual, entre como dono e faça **Backup JSON**, além de uma exportação Excel por segurança.
-2. De preferência teste a nova versão em **um repositório separado ou clone** antes de substituir o sistema usado diariamente. A mesma chave de armazenamento no **mesmo endereço** reutiliza os dados; uma URL de teste separada não herdará dados automaticamente, então restaure uma cópia de backup para testar.
-3. Extraia o ZIP e envie **todos os arquivos da raiz**, mantendo as pastas `css`, `js`, `dev-kayko`.
-4. Em **Settings → Pages**, configure `main` / `/(root)`.
-5. Atualize com `Ctrl + F5`, confira os preços, o estoque, o histórico, a senha do dono, a senha operacional do caixa, a impressão e o Excel.
-6. Configure **nome do dono** em Configurações e cadastre os **nomes dos funcionários** antes de permitir atendimento.
-
-## Organização
+## Organização dos arquivos
 
 ```text
-index.html
-README.md
-css/style.css
-js/data.js
-js/security.js
-js/excel.js
-js/access.js
-js/icecream.js
-js/app.js
-dev-kayko/index.html
+index.html                 Interface do PDV (HTML indentado)
+css/style.css              Layout, cores, imagens, calendário e impressão
+js/data.js                 Produtos e configurações iniciais, localStorage
+js/app.js                  PDV, carrinho, vendas, impressão e relatórios
+js/access.js               Entrada do dono e funcionários
+js/security.js             Segurança local
+js/hr.js                   Funcionários, salários, pagamentos
+js/backup.js               Backup/restauração e fotos locais
+js/excel.js                Relatórios Excel
+js/icecream.js             Sorvete por quilo
+js/milkshake.js            Milk-shakes
+assets/                    Fotos padrão, divididas por categoria
+dev-kayko/index.html       Portfólio do desenvolvedor
+docs/FOTOS-E-CATALOGO.md   Como incluir imagens e editar o catálogo
+tools/verificar_fotos.py  Verifica referências de fotos estáticas
+referencias/               Dados adicionais enviados para consulta
+.editorconfig              Indentação: 2 espaços, UTF-8
+.vscode/settings.json      Padrão do editor
 ```
 
-## Privacidade e limitações
+## Editar fotos e produtos
 
-- O funcionário escolhe um nome **sem autenticação pessoal**; a identificação não prova quem realmente realizou a venda. Para auditoria confiável seriam necessários logins individuais e controle de acesso no servidor.
-- Os dados ficam no `localStorage` do navegador, e vários computadores não sincronizam entre si. Perfis e senhas locais não protegem dados contra usuários com acesso às ferramentas de desenvolvedor do dispositivo.
-- A impressora Bluetooth deve ser reconhecida pelo navegador/sistema operacional; não existe conexão ESC/POS automática.
-- O Excel é uma cópia exportada; não é sincronizado com um arquivo Excel já existente.
-- O backup JSON contém verificadores criptográficos das senhas, portanto mantenha-o protegido.
+Leia [docs/FOTOS-E-CATALOGO.md](docs/FOTOS-E-CATALOGO.md). O painel do dono aceita fotos do computador, mas elas ficam **no navegador**, e não no servidor GitHub.
 
-**Testes realizados:** execução simulada no Chromium com criação de dono, código de recuperação, cadastro de funcionário, senha do caixa, vendas por peso e bola, impressão das duas vias, histórico e Excel. A impressão física e a publicação no seu repositório ainda não foram verificadas.
+## Publicar no GitHub Pages
 
+1. Faça backup JSON/ZIP antes de substituir uma instalação em uso.
+2. Envie o **conteúdo** desta pasta para a raiz do repositório; `index.html` deve ficar na raiz.
+3. Em Settings > Pages, selecione branch `main` e `/(root)`.
+4. Abra o site; em navegador novo, configure a senha do dono, cadastre dados da sorveteria e confira preços/estoque.
+5. Para ver alterações de arquivos, atualize com `Ctrl + F5`.
 
-## Semáforo de estoque — v1.0.7
+**Sem dados de demonstração no primeiro acesso:** vendas, financeiro, caixa, pagamentos e funcionários começam vazios; estoque padrão começa em zero. O catálogo inicial e imagens padrão permanecem. Publicar código **não apaga** dados já existentes no navegador.
 
-O estoque agora utiliza três cores nas telas **Visão geral → Avisos de estoque**, **Casquinhas, embalagens e estoque** e **Frente de caixa (PDV)**:
+**Segurança:** o controle de senhas é local; para dados compartilhados entre dispositivos e autenticação robusta é necessário backend. Faça backups frequentes.
 
-- **Verde — estoque OK:** quantidade acima do estoque mínimo configurado para o produto.
-- **Amarelo — estoque baixo:** quantidade positiva, mas menor ou igual ao estoque mínimo.
-- **Vermelho — esgotado:** quantidade igual ou inferior a zero. O botão do produto esgotado não pode ser selecionado no PDV.
+## Alterações nesta organização
 
-Exemplo: mínimo de 10 unidades: 15 fica verde; 5 fica amarelo; 0 fica vermelho. Para mudar o limite, entre no perfil do dono em **Casquinhas e embalagens → Editar → Estoque mínimo**. Adicionamos o filtro **Somente esgotados**. Todas as cores têm texto e legenda para acessibilidade.
-
-**Atualização:** substitua `index.html`, `css/style.css` e `js/app.js`; mantenha a mesma chave de dados, endereço do site e demais arquivos. Antes de atualizar, guarde um backup JSON.
-
-
-## Ajuste visual da versão 1.0.7
-
-- A seção **Backup e restauração** tem título, descrição, ações e avisos separados, com espaço consistente em todas as bordas.
-- Os botões de backup, Excel e restauração não ficam mais colados entre si; cada ação ocupa sua própria linha em telas normais.
-- Outros painéis receberam ajustes de margens, espaçamento de botões, formulários e textos informativos.
-- A atualização altera apenas `index.html`, `css/style.css` e `README.md`: os scripts, senhas, vendas, estoque e dados salvos permanecem iguais.
-- Para atualizar apenas o visual no GitHub, envie `index.html` e `css/style.css`, mantendo todas as outras pastas e seus arquivos.
-
-## Atualização: Sorveteria • V1.0.0
-
-- Marca exibida alterada para **Sorveteria**. O texto lateral é **PDV DE SORVETERIA • V1.0.0**. Dados salvos com nomes genéricos antigos (como Sorveteria Manager) são atualizados sem alterar nomes personalizados da loja.
-- Em **Relatórios e histórico → Entradas e saídas avulsas** e **Financeiro → Histórico de movimentações** há filtros de tipo (**Entradas / Saídas / Ambas**), ordenação (**mais recentes / mais antigas**) e quantidade (**10 / 20 / 50 / todas**), com botão para limpar.
-- O filtro do relatório respeita o dia ou mês selecionado, e afeta apenas a lista visual de movimentações. **Os totais do relatório e os arquivos Excel seguem com todos os lançamentos do período**, inclusive cancelamentos claramente identificados.
-- Lançamentos novos salvam data e hora exatas para ordenar. Registros antigos que tinham apenas data utilizam a ordem em que foram registrados para desempate.
-- O banco local `devkayko_sorveteria_v1` é mantido. Exporte seu backup JSON antes de substituir os arquivos no GitHub.
-
-
-## Impressão A4/PDF e calendário — atualização de layout
-
-- Relatório em A4 com **25 mm no topo, 27 mm na base e 22 mm em cada lateral**. O espaço é repetido em **todas as páginas** do relatório, não apenas na primeira.
-- Tabelas com cabeçalho repetido quando prosseguem na próxima folha e linhas sem cortes no meio. Os blocos longos podem continuar na página seguinte em vez de serem espremidos ou cortados.
-- Margens verificadas para impressão ou **Salvar como PDF** pela janela do navegador. De preferência, desative cabeçalho/rodapé extra da impressora do navegador para evitar duplicidade.
-- Calendário próprio no mesmo tema do sistema: **roxo claro e escuro**, seleção de dia, seleção de mês/ano, navegação e botão **Hoje**. Valores continuam no formato nativo (`YYYY-MM-DD`/`YYYY-MM`) para compatibilidade dos relatórios.
-- A atualização altera somente `index.html`, `css/style.css` e adiciona `js/calendar.js`; os scripts de caixa/vendas e a chave de armazenamento foram preservados.
-
-Para atualizar no GitHub, faça um backup JSON, envie os arquivos do ZIP mantendo as pastas, e recarregue a página com `Ctrl + F5`.
+- HTML com indentação e alinhamento de tags.
+- JavaScript formatado em 2 espaços, sem mudar a lógica.
+- Preservados IDs, ordem dos scripts e caminhos do projeto.
+- Criados padrões para VS Code, guia de fotos e verificador simples.
+- Arquivo JSON adicional recebido preservado em `referencias/`, sem alterar os produtos existentes no PDV.
