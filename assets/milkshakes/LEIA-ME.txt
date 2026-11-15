@@ -1,0 +1,3 @@
+Envie as fotos dos milk-shakes para esta pasta.
+Depois, no painel Dono > Sabores e preços > Milk-shakes, informe o caminho assets/milkshakes/nome.webp.
+As imagens são exibidas inteiras com object-fit:contain.

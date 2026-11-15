@@ -1,0 +1,915 @@
+/* Para mudar o cardápio no site, edite ESTE arquivo; catalogo-produtos.json é uma cópia de consulta. */
+window.SORVETERIA_CARDAPIO = {
+  "title": "Sorveteria — Cardápio completo",
+  "currency": "BRL",
+  "pricePerKg": 44.99,
+  "generatedBy": "Dev Kayko",
+  "notes": [
+    "Imagens ilustrativas geradas com IA a partir de referência visual enviada.",
+    "O cardápio não altera automaticamente o banco de dados ou o preço do PDV."
+  ],
+  "categories": [
+    {
+      "id": "picoles-tradicionais",
+      "name": "Picolés tradicionais",
+      "priceLabel": "R$ 2,00 cada",
+      "note": "",
+      "items": [
+        {
+          "id": "picoles-tradicionais-amendoim",
+          "name": "Amendoim",
+          "image": "assets/produtos/picole-amendoim.jpg",
+          "price": 2,
+          "unit": "unidade"
+        },
+        {
+          "id": "picoles-tradicionais-acai",
+          "name": "Açaí",
+          "image": "assets/produtos/picole-acai.jpg",
+          "price": 2,
+          "unit": "unidade"
+        },
+        {
+          "id": "picoles-tradicionais-chocolate",
+          "name": "Chocolate",
+          "image": "assets/produtos/picole-chocolate.jpg",
+          "price": 2,
+          "unit": "unidade"
+        },
+        {
+          "id": "picoles-tradicionais-coco",
+          "name": "Coco",
+          "image": "assets/produtos/picole-coco.jpg",
+          "price": 2,
+          "unit": "unidade"
+        },
+        {
+          "id": "picoles-tradicionais-leite-condensado",
+          "name": "Leite Condensado",
+          "image": "assets/produtos/picole-leite-condensado.jpg",
+          "price": 2,
+          "unit": "unidade"
+        },
+        {
+          "id": "picoles-tradicionais-limao",
+          "name": "Limão",
+          "image": "assets/produtos/picole-limao.jpg",
+          "price": 2,
+          "unit": "unidade"
+        },
+        {
+          "id": "picoles-tradicionais-maracuja",
+          "name": "Maracujá",
+          "image": "assets/produtos/picole-maracuja.jpg",
+          "price": 2,
+          "unit": "unidade"
+        },
+        {
+          "id": "picoles-tradicionais-maca-verde",
+          "name": "Maçã Verde",
+          "image": "assets/produtos/picole-maca-verde.jpg",
+          "price": 2,
+          "unit": "unidade"
+        },
+        {
+          "id": "picoles-tradicionais-milho-verde",
+          "name": "Milho Verde",
+          "image": "assets/produtos/picole-milho-verde.jpg",
+          "price": 2,
+          "unit": "unidade"
+        },
+        {
+          "id": "picoles-tradicionais-morango",
+          "name": "Morango",
+          "image": "assets/produtos/picole-morango.jpg",
+          "price": 2,
+          "unit": "unidade"
+        }
+      ]
+    },
+    {
+      "id": "sorvete-por-quilo",
+      "name": "Sorvete por quilo",
+      "priceLabel": "R$ 44,99/kg",
+      "note": "O cálculo é feito pelo peso. O preço por bola não foi informado e permanece configurável no PDV.",
+      "items": [
+        {
+          "id": "sorvete-por-quilo-morango",
+          "name": "Morango",
+          "image": "assets/produtos/bola-morango.jpg",
+          "price": 44.99,
+          "unit": "kg"
+        },
+        {
+          "id": "sorvete-por-quilo-brigadeiro",
+          "name": "Brigadeiro",
+          "image": "assets/produtos/bola-brigadeiro.jpg",
+          "price": 44.99,
+          "unit": "kg"
+        },
+        {
+          "id": "sorvete-por-quilo-chiclete",
+          "name": "Chiclete",
+          "image": "assets/produtos/bola-chiclete.jpg",
+          "price": 44.99,
+          "unit": "kg"
+        },
+        {
+          "id": "sorvete-por-quilo-napolitano",
+          "name": "Napolitano",
+          "image": "assets/produtos/bola-napolitano.jpg",
+          "price": 44.99,
+          "unit": "kg"
+        },
+        {
+          "id": "sorvete-por-quilo-sonho-de-valsa",
+          "name": "Sonho de Valsa",
+          "image": "assets/produtos/bola-sonho-de-valsa.jpg",
+          "price": 44.99,
+          "unit": "kg"
+        },
+        {
+          "id": "sorvete-por-quilo-abacaxi",
+          "name": "Abacaxi",
+          "image": "assets/produtos/bola-abacaxi.jpg",
+          "price": 44.99,
+          "unit": "kg"
+        },
+        {
+          "id": "sorvete-por-quilo-coco",
+          "name": "Coco",
+          "image": "assets/produtos/bola-coco.jpg",
+          "price": 44.99,
+          "unit": "kg"
+        },
+        {
+          "id": "sorvete-por-quilo-maracuja",
+          "name": "Maracujá",
+          "image": "assets/produtos/bola-maracuja.jpg",
+          "price": 44.99,
+          "unit": "kg"
+        },
+        {
+          "id": "sorvete-por-quilo-maca-verde",
+          "name": "Maçã Verde",
+          "image": "assets/produtos/bola-maca-verde.jpg",
+          "price": 44.99,
+          "unit": "kg"
+        },
+        {
+          "id": "sorvete-por-quilo-creme-com-passas",
+          "name": "Creme com Passas",
+          "image": "assets/produtos/bola-creme-com-passas.jpg",
+          "price": 44.99,
+          "unit": "kg"
+        },
+        {
+          "id": "sorvete-por-quilo-nata-goiaba",
+          "name": "Nata Goiaba",
+          "image": "assets/produtos/bola-nata-goiaba.jpg",
+          "price": 44.99,
+          "unit": "kg"
+        },
+        {
+          "id": "sorvete-por-quilo-flocos",
+          "name": "Flocos",
+          "image": "assets/produtos/bola-flocos.jpg",
+          "price": 44.99,
+          "unit": "kg"
+        }
+      ]
+    },
+    {
+      "id": "milk-shakes-tradicionais",
+      "name": "Milk-shakes tradicionais",
+      "priceLabel": "A partir de R$ 12,00",
+      "note": "",
+      "items": [
+        {
+          "id": "milk-shakes-tradicionais-brigadeiro",
+          "name": "Brigadeiro",
+          "image": "assets/produtos/shake-brigadeiro.jpg",
+          "options": [
+            {
+              "label": "300 ml",
+              "price": 12
+            },
+            {
+              "label": "400 ml",
+              "price": 14
+            },
+            {
+              "label": "500 ml",
+              "price": 16
+            }
+          ],
+          "unit": "copo"
+        },
+        {
+          "id": "milk-shakes-tradicionais-chiclete",
+          "name": "Chiclete",
+          "image": "assets/produtos/shake-chiclete.jpg",
+          "options": [
+            {
+              "label": "300 ml",
+              "price": 12
+            },
+            {
+              "label": "400 ml",
+              "price": 14
+            },
+            {
+              "label": "500 ml",
+              "price": 16
+            }
+          ],
+          "unit": "copo"
+        },
+        {
+          "id": "milk-shakes-tradicionais-coco",
+          "name": "Coco",
+          "image": "assets/produtos/shake-coco.jpg",
+          "options": [
+            {
+              "label": "300 ml",
+              "price": 12
+            },
+            {
+              "label": "400 ml",
+              "price": 14
+            },
+            {
+              "label": "500 ml",
+              "price": 16
+            }
+          ],
+          "unit": "copo"
+        },
+        {
+          "id": "milk-shakes-tradicionais-creme-com-passas",
+          "name": "Creme com Passas",
+          "image": "assets/produtos/shake-creme-com-passas.jpg",
+          "options": [
+            {
+              "label": "300 ml",
+              "price": 12
+            },
+            {
+              "label": "400 ml",
+              "price": 14
+            },
+            {
+              "label": "500 ml",
+              "price": 16
+            }
+          ],
+          "unit": "copo"
+        },
+        {
+          "id": "milk-shakes-tradicionais-flocos",
+          "name": "Flocos",
+          "image": "assets/produtos/shake-flocos.jpg",
+          "options": [
+            {
+              "label": "300 ml",
+              "price": 12
+            },
+            {
+              "label": "400 ml",
+              "price": 14
+            },
+            {
+              "label": "500 ml",
+              "price": 16
+            }
+          ],
+          "unit": "copo"
+        },
+        {
+          "id": "milk-shakes-tradicionais-maracuja",
+          "name": "Maracujá",
+          "image": "assets/produtos/shake-maracuja.jpg",
+          "options": [
+            {
+              "label": "300 ml",
+              "price": 12
+            },
+            {
+              "label": "400 ml",
+              "price": 14
+            },
+            {
+              "label": "500 ml",
+              "price": 16
+            }
+          ],
+          "unit": "copo"
+        },
+        {
+          "id": "milk-shakes-tradicionais-morango",
+          "name": "Morango",
+          "image": "assets/produtos/shake-morango.jpg",
+          "options": [
+            {
+              "label": "300 ml",
+              "price": 12
+            },
+            {
+              "label": "400 ml",
+              "price": 14
+            },
+            {
+              "label": "500 ml",
+              "price": 16
+            }
+          ],
+          "unit": "copo"
+        }
+      ]
+    },
+    {
+      "id": "milk-shakes-especiais",
+      "name": "Milk-shakes especiais",
+      "priceLabel": "A partir de R$ 15,00",
+      "note": "",
+      "items": [
+        {
+          "id": "milk-shakes-especiais-ninho-com-nutella",
+          "name": "Ninho com Nutella",
+          "image": "assets/produtos/especial-ninho-com-nutella.jpg",
+          "options": [
+            {
+              "label": "300 ml",
+              "price": 15
+            },
+            {
+              "label": "400 ml",
+              "price": 17
+            },
+            {
+              "label": "500 ml",
+              "price": 19
+            }
+          ],
+          "unit": "copo"
+        },
+        {
+          "id": "milk-shakes-especiais-ninho-com-oreo",
+          "name": "Ninho com Oreo",
+          "image": "assets/produtos/especial-ninho-com-oreo.jpg",
+          "options": [
+            {
+              "label": "300 ml",
+              "price": 15
+            },
+            {
+              "label": "400 ml",
+              "price": 17
+            },
+            {
+              "label": "500 ml",
+              "price": 19
+            }
+          ],
+          "unit": "copo"
+        },
+        {
+          "id": "milk-shakes-especiais-ninho-trufado",
+          "name": "Ninho Trufado",
+          "image": "assets/produtos/especial-ninho-trufado.jpg",
+          "options": [
+            {
+              "label": "300 ml",
+              "price": 15
+            },
+            {
+              "label": "400 ml",
+              "price": 17
+            },
+            {
+              "label": "500 ml",
+              "price": 19
+            }
+          ],
+          "unit": "copo"
+        },
+        {
+          "id": "milk-shakes-especiais-ovomaltine",
+          "name": "Ovomaltine",
+          "image": "assets/produtos/especial-ovomaltine.jpg",
+          "options": [
+            {
+              "label": "300 ml",
+              "price": 15
+            },
+            {
+              "label": "400 ml",
+              "price": 17
+            },
+            {
+              "label": "500 ml",
+              "price": 19
+            }
+          ],
+          "unit": "copo"
+        },
+        {
+          "id": "milk-shakes-especiais-kinder-ovo",
+          "name": "Kinder Ovo",
+          "image": "assets/produtos/especial-kinder-ovo.jpg",
+          "options": [
+            {
+              "label": "300 ml",
+              "price": 15
+            },
+            {
+              "label": "400 ml",
+              "price": 17
+            },
+            {
+              "label": "500 ml",
+              "price": 19
+            }
+          ],
+          "unit": "copo"
+        },
+        {
+          "id": "milk-shakes-especiais-sensacao",
+          "name": "Sensação",
+          "image": "assets/produtos/especial-sensacao.jpg",
+          "options": [
+            {
+              "label": "300 ml",
+              "price": 15
+            },
+            {
+              "label": "400 ml",
+              "price": 17
+            },
+            {
+              "label": "500 ml",
+              "price": 19
+            }
+          ],
+          "unit": "copo"
+        },
+        {
+          "id": "milk-shakes-especiais-cookies",
+          "name": "Cookies",
+          "image": "assets/produtos/especial-cookies.jpg",
+          "options": [
+            {
+              "label": "300 ml",
+              "price": 15
+            },
+            {
+              "label": "400 ml",
+              "price": 17
+            },
+            {
+              "label": "500 ml",
+              "price": 19
+            }
+          ],
+          "unit": "copo"
+        }
+      ]
+    },
+    {
+      "id": "mini-paleta-premium",
+      "name": "Mini Paleta Premium",
+      "priceLabel": "R$ 10,00 cada",
+      "note": "",
+      "items": [
+        {
+          "id": "mini-paleta-premium-chocolate-branco",
+          "name": "Chocolate Branco",
+          "image": "assets/produtos/paleta-chocolate-branco.jpg",
+          "price": 10,
+          "unit": "unidade"
+        },
+        {
+          "id": "mini-paleta-premium-chocolate-black",
+          "name": "Chocolate Black",
+          "image": "assets/produtos/paleta-chocolate-black.jpg",
+          "price": 10,
+          "unit": "unidade"
+        },
+        {
+          "id": "mini-paleta-premium-morango-com-leite-condensado",
+          "name": "Morango com Leite Condensado",
+          "image": "assets/produtos/paleta-morango-com-leite-condensado.jpg",
+          "price": 10,
+          "unit": "unidade"
+        },
+        {
+          "id": "mini-paleta-premium-brigadeiro-de-colher",
+          "name": "Brigadeiro de Colher",
+          "image": "assets/produtos/paleta-brigadeiro-de-colher.jpg",
+          "price": 10,
+          "unit": "unidade"
+        },
+        {
+          "id": "mini-paleta-premium-leite-com-avela",
+          "name": "Leite com Avelã",
+          "image": "assets/produtos/paleta-leite-com-avela.jpg",
+          "price": 10,
+          "unit": "unidade"
+        },
+        {
+          "id": "mini-paleta-premium-bolo-de-rolo",
+          "name": "Bolo de Rolo",
+          "image": "assets/produtos/paleta-bolo-de-rolo.jpg",
+          "price": 10,
+          "unit": "unidade"
+        }
+      ]
+    },
+    {
+      "id": "sorvete-1-5-litro",
+      "name": "Sorvete 1,5 litro",
+      "priceLabel": "R$ 30,00 • 1,5 L",
+      "note": "",
+      "items": [
+        {
+          "id": "sorvete-1-5-litro-chocolate",
+          "name": "Chocolate",
+          "image": "assets/produtos/tub15-chocolate.jpg",
+          "price": 30,
+          "unit": "pote de 1,5 L"
+        },
+        {
+          "id": "sorvete-1-5-litro-morango",
+          "name": "Morango",
+          "image": "assets/produtos/tub15-morango.jpg",
+          "price": 30,
+          "unit": "pote de 1,5 L"
+        },
+        {
+          "id": "sorvete-1-5-litro-napolitano",
+          "name": "Napolitano",
+          "image": "assets/produtos/tub15-napolitano.jpg",
+          "price": 30,
+          "unit": "pote de 1,5 L"
+        },
+        {
+          "id": "sorvete-1-5-litro-flocos",
+          "name": "Flocos",
+          "image": "assets/produtos/tub15-flocos.jpg",
+          "price": 30,
+          "unit": "pote de 1,5 L"
+        },
+        {
+          "id": "sorvete-1-5-litro-nata-goiaba",
+          "name": "Nata Goiaba",
+          "image": "assets/produtos/tub15-nata-goiaba.jpg",
+          "price": 30,
+          "unit": "pote de 1,5 L"
+        }
+      ]
+    },
+    {
+      "id": "acai-900-ml",
+      "name": "Açaí 900 ml",
+      "priceLabel": "R$ 27,00 • 900 ml",
+      "note": "",
+      "items": [
+        {
+          "id": "acai-900-ml-acai-900-ml",
+          "name": "Açaí 900 ml",
+          "image": "assets/produtos/acai-900.jpg",
+          "price": 27,
+          "unit": "pote de 900 ml"
+        }
+      ]
+    },
+    {
+      "id": "super-cremosos",
+      "name": "Super Cremosos",
+      "priceLabel": "R$ 13,00",
+      "note": "",
+      "items": [
+        {
+          "id": "super-cremosos-leite-trufado",
+          "name": "Leite Trufado",
+          "image": "assets/produtos/cremoso-leite-trufado.jpg",
+          "price": 13,
+          "unit": "unidade"
+        },
+        {
+          "id": "super-cremosos-napolitano",
+          "name": "Napolitano",
+          "image": "assets/produtos/cremoso-napolitano.jpg",
+          "price": 13,
+          "unit": "unidade"
+        },
+        {
+          "id": "super-cremosos-bombom-de-doce-de-leite",
+          "name": "Bombom de Doce de Leite",
+          "image": "assets/produtos/cremoso-bombom-de-doce-de-leite.jpg",
+          "price": 13,
+          "unit": "unidade"
+        }
+      ]
+    },
+    {
+      "id": "sorvete-1-l-acai-com-leitinho",
+      "name": "Sorvete 1 L — Açaí com Leitinho",
+      "priceLabel": "R$ 35,00 • 1 L",
+      "note": "",
+      "items": [
+        {
+          "id": "sorvete-1-l-acai-com-leitinho-acai-com-leitinho",
+          "name": "Açaí com Leitinho",
+          "image": "assets/produtos/tub1l-acai-com-leitinho.jpg",
+          "price": 35,
+          "unit": "pote de 1 L"
+        }
+      ]
+    },
+    {
+      "id": "sorvete-1-l-sabores-especiais",
+      "name": "Sorvete 1 L — Sabores especiais",
+      "priceLabel": "R$ 30,00 • 1 L",
+      "note": "",
+      "items": [
+        {
+          "id": "sorvete-1-l-sabores-especiais-pave",
+          "name": "Pavê",
+          "image": "assets/produtos/tub1l-pave.jpg",
+          "price": 30,
+          "unit": "pote de 1 L"
+        },
+        {
+          "id": "sorvete-1-l-sabores-especiais-leite-trufado",
+          "name": "Leite Trufado",
+          "image": "assets/produtos/tub1l-leite-trufado.jpg",
+          "price": 30,
+          "unit": "pote de 1 L"
+        },
+        {
+          "id": "sorvete-1-l-sabores-especiais-leite-com-avela",
+          "name": "Leite com Avelã",
+          "image": "assets/produtos/tub1l-leite-com-avela.jpg",
+          "price": 30,
+          "unit": "pote de 1 L"
+        },
+        {
+          "id": "sorvete-1-l-sabores-especiais-delicia-de-abacaxi",
+          "name": "Delícia de Abacaxi",
+          "image": "assets/produtos/tub1l-delicia-de-abacaxi.jpg",
+          "price": 30,
+          "unit": "pote de 1 L"
+        },
+        {
+          "id": "sorvete-1-l-sabores-especiais-brigadeiro-de-colher",
+          "name": "Brigadeiro de Colher",
+          "image": "assets/produtos/tub1l-brigadeiro-de-colher.jpg",
+          "price": 30,
+          "unit": "pote de 1 L"
+        },
+        {
+          "id": "sorvete-1-l-sabores-especiais-chocolate-belga-crocante",
+          "name": "Chocolate Belga Crocante",
+          "image": "assets/produtos/tub1l-chocolate-belga-crocante.jpg",
+          "price": 30,
+          "unit": "pote de 1 L"
+        }
+      ]
+    },
+    {
+      "id": "zero-acucar",
+      "name": "Zero Açúcar",
+      "priceLabel": "R$ 30,00",
+      "note": "Volume da embalagem não informado.",
+      "items": [
+        {
+          "id": "zero-acucar-acai-zero-acucar",
+          "name": "Açaí Zero Açúcar",
+          "image": "assets/produtos/zero-acai-zero-acucar.jpg",
+          "price": 30,
+          "unit": "unidade"
+        },
+        {
+          "id": "zero-acucar-chocolate-zero",
+          "name": "Chocolate Zero",
+          "image": "assets/produtos/zero-chocolate-zero.jpg",
+          "price": 30,
+          "unit": "unidade"
+        }
+      ]
+    },
+    {
+      "id": "salada-de-frutas",
+      "name": "Salada de frutas",
+      "priceLabel": "R$ 10,00 / R$ 14,00",
+      "note": "Frutas fresquinhas • Disponível de segunda a sábado.",
+      "items": [
+        {
+          "id": "salada-de-frutas-salada-de-frutas",
+          "name": "Salada de frutas",
+          "image": "assets/produtos/salada.jpg",
+          "options": [
+            {
+              "label": "300 ml",
+              "price": 10
+            },
+            {
+              "label": "400 ml",
+              "price": 14
+            }
+          ],
+          "unit": "copo"
+        }
+      ]
+    },
+    {
+      "id": "coberturas",
+      "name": "Coberturas",
+      "priceLabel": "R$ 12,00 a R$ 15,00",
+      "note": "",
+      "items": [
+        {
+          "id": "coberturas-chocolate",
+          "name": "Chocolate",
+          "image": "assets/produtos/cobertura-chocolate.jpg",
+          "price": 15,
+          "unit": "unidade"
+        },
+        {
+          "id": "coberturas-morango",
+          "name": "Morango",
+          "image": "assets/produtos/cobertura-morango.jpg",
+          "price": 12,
+          "unit": "unidade"
+        },
+        {
+          "id": "coberturas-caramelo",
+          "name": "Caramelo",
+          "image": "assets/produtos/cobertura-caramelo.jpg",
+          "price": 12,
+          "unit": "unidade"
+        }
+      ]
+    },
+    {
+      "id": "picole-pistache",
+      "name": "Picolé Pistache",
+      "priceLabel": "R$ 6,00",
+      "note": "",
+      "items": [
+        {
+          "id": "picole-pistache-picole-pistache",
+          "name": "Picolé Pistache",
+          "image": "assets/produtos/pistache.jpg",
+          "price": 6,
+          "unit": "unidade"
+        }
+      ]
+    },
+    {
+      "id": "picoles-especiais",
+      "name": "Picolés especiais",
+      "priceLabel": "R$ 7,00 cada",
+      "note": "",
+      "items": [
+        {
+          "id": "picoles-especiais-cookies",
+          "name": "Cookies",
+          "image": "assets/produtos/picole-especial-cookies.jpg",
+          "price": 7,
+          "unit": "unidade"
+        },
+        {
+          "id": "picoles-especiais-sensacao",
+          "name": "Sensação",
+          "image": "assets/produtos/picole-especial-sensacao.jpg",
+          "price": 7,
+          "unit": "unidade"
+        },
+        {
+          "id": "picoles-especiais-chocolate-zero-acucar",
+          "name": "Chocolate Zero Açúcar",
+          "image": "assets/produtos/picole-especial-chocolate-zero-acucar.jpg",
+          "price": 7,
+          "unit": "unidade"
+        }
+      ]
+    },
+    {
+      "id": "batidinha-de-acai",
+      "name": "Batidinha de Açaí",
+      "priceLabel": "R$ 14,00",
+      "note": "Explosão de sabor!",
+      "items": [
+        {
+          "id": "batidinha-de-acai-batidinha-de-acai",
+          "name": "Batidinha de Açaí",
+          "image": "assets/produtos/batidinha.jpg",
+          "price": 14,
+          "unit": "unidade"
+        }
+      ]
+    },
+    {
+      "id": "cremosinn",
+      "name": "Cremosinn",
+      "priceLabel": "R$ 2,00 cada",
+      "note": "",
+      "items": [
+        {
+          "id": "cremosinn-leite-condensado",
+          "name": "Leite Condensado",
+          "image": "assets/produtos/picole-leite-condensado.jpg",
+          "price": 2,
+          "unit": "unidade"
+        },
+        {
+          "id": "cremosinn-acai-com-banana",
+          "name": "Açaí com Banana",
+          "image": "assets/produtos/acai-900.jpg",
+          "price": 2,
+          "unit": "unidade"
+        },
+        {
+          "id": "cremosinn-chocolate-branco",
+          "name": "Chocolate Branco",
+          "image": "assets/produtos/paleta-chocolate-branco.jpg",
+          "price": 2,
+          "unit": "unidade"
+        },
+        {
+          "id": "cremosinn-morango",
+          "name": "Morango",
+          "image": "assets/produtos/cobertura-morango.jpg",
+          "price": 2,
+          "unit": "unidade"
+        },
+        {
+          "id": "cremosinn-blue",
+          "name": "Blue",
+          "image": "assets/produtos/bola-napolitano.jpg",
+          "price": 2,
+          "unit": "unidade"
+        },
+        {
+          "id": "cremosinn-frutas-tropicais",
+          "name": "Frutas Tropicais",
+          "image": "assets/produtos/bola-napolitano.jpg",
+          "price": 2,
+          "unit": "unidade"
+        },
+        {
+          "id": "cremosinn-maracuja",
+          "name": "Maracujá",
+          "image": "assets/produtos/bola-maracuja.jpg",
+          "price": 2,
+          "unit": "unidade"
+        },
+        {
+          "id": "cremosinn-coco",
+          "name": "Coco",
+          "image": "assets/produtos/bola-coco.jpg",
+          "price": 2,
+          "unit": "unidade"
+        },
+        {
+          "id": "cremosinn-graviola",
+          "name": "Graviola",
+          "image": "assets/produtos/bola-napolitano.jpg",
+          "price": 2,
+          "unit": "unidade"
+        },
+        {
+          "id": "cremosinn-uva",
+          "name": "Uva",
+          "image": "assets/produtos/bola-napolitano.jpg",
+          "price": 2,
+          "unit": "unidade"
+        }
+      ]
+    },
+    {
+      "id": "agua-mineral",
+      "name": "Água mineral",
+      "priceLabel": "R$ 2,00 / R$ 4,00",
+      "note": "",
+      "items": [
+        {
+          "id": "agua-mineral-agua-mineral-500-ml",
+          "name": "Água Mineral 500 ml",
+          "image": "assets/produtos/agua-500.jpg",
+          "price": 2,
+          "unit": "garrafa"
+        },
+        {
+          "id": "agua-mineral-agua-mineral-1-5-l",
+          "name": "Água Mineral 1,5 L",
+          "image": "assets/produtos/agua-1500.jpg",
+          "price": 4,
+          "unit": "garrafa"
+        }
+      ]
+    }
+  ]
+};
