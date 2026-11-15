@@ -188,7 +188,7 @@ window.SORVETERIA_CARDAPIO = {
         {
           "id": "milk-shakes-tradicionais-brigadeiro",
           "name": "Brigadeiro",
-          "image": "assets/produtos/shake-brigadeiro.jpg",
+          "image": "assets/milkshakes/BrigadeiroMilkshaker.webp",
           "options": [
             {
               "label": "300 ml",
@@ -208,7 +208,7 @@ window.SORVETERIA_CARDAPIO = {
         {
           "id": "milk-shakes-tradicionais-chiclete",
           "name": "Chiclete",
-          "image": "assets/produtos/shake-chiclete.jpg",
+          "image": "assets/milkshakes/ChicleteMilkShaker.webp",
           "options": [
             {
               "label": "300 ml",
@@ -228,7 +228,7 @@ window.SORVETERIA_CARDAPIO = {
         {
           "id": "milk-shakes-tradicionais-coco",
           "name": "Coco",
-          "image": "assets/produtos/shake-coco.jpg",
+          "image": "assets/milkshakes/CocoMilkShaker.webp",
           "options": [
             {
               "label": "300 ml",
