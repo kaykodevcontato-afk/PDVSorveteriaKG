@@ -207,7 +207,7 @@
         {
           "id": "milk-shakes-tradicionais-chiclete",
           "name": "Chiclete",
-          "image": "assets/produtos/shake-chiclete.jpg",
+          "image": "assets/milkshakes/ChicleteMilkShaker.webp",
           "options": [
             {
               "label": "300 ml",
