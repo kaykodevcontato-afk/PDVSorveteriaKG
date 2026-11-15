@@ -1,0 +1,2 @@
+Fotos dos 12 sabores por quilo. Para mudar uma imagem, substitua o arquivo correspondente ou edite o caminho em Dono > Sabores e preços.
+As imagens sao mostradas por inteiro no PDV (object-fit:contain).
